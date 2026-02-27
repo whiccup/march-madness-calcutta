@@ -9,6 +9,8 @@
   - `name`: unique bidder name
   - `bankroll`: positive numeric budget cap (optional when `unlimited_bankroll: true`)
   - `unlimited_bankroll`: optional boolean to remove spend cap for that participant
+  - `soft_cap_decay`: optional non-negative float for participant-level soft cap behavior
+    - when set, bidder can exceed bankroll with probabilistic penalty (0 = always allow)
   - `strategy`: object with:
     - builtin: `{"kind":"builtin","name":"ev_threshold|flat_discount|seed_bias","params":{...}}`
     - plugin: `{"kind":"plugin","path":"module.path:ClassName","params":{...}}`

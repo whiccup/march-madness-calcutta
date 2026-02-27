@@ -16,6 +16,7 @@ class ParticipantState:
     bankroll_total: float | None
     remaining_bankroll: float
     unlimited_bankroll: bool = False
+    soft_cap_decay: float | None = None
     spend: float = 0.0
     teams_won: list[str] = field(default_factory=list)
 

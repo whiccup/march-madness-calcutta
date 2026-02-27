@@ -68,6 +68,20 @@ class ValidateTests(unittest.TestCase):
         ]
         validate_auction_participants(participants)
 
+    def test_validate_auction_participants_rejects_negative_soft_cap_decay(self) -> None:
+        """Reject negative per-participant soft cap decay values."""
+
+        participants = [
+            {
+                "name": "A",
+                "bankroll": 100,
+                "soft_cap_decay": -0.2,
+                "strategy": {"kind": "builtin", "name": "ev_threshold", "params": {}},
+            }
+        ]
+        with self.assertRaises(ValidationError):
+            validate_auction_participants(participants)
+
 
 if __name__ == "__main__":
     unittest.main()

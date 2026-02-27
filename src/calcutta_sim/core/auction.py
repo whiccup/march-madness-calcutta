@@ -116,6 +116,7 @@ def simulate_auction(
         unlimited_bankroll = force_unlimited_bankroll or bool(
             participant.get("unlimited_bankroll", False)
         )
+        participant_soft_cap_decay = participant.get("soft_cap_decay")
         bankroll = float(participant.get("bankroll") or 0.0)
         remaining = float("inf") if unlimited_bankroll else bankroll
         states[name] = ParticipantState(
@@ -123,6 +124,11 @@ def simulate_auction(
             bankroll_total=bankroll if bankroll > 0 else None,
             remaining_bankroll=remaining,
             unlimited_bankroll=unlimited_bankroll,
+            soft_cap_decay=(
+                None
+                if participant_soft_cap_decay is None
+                else float(participant_soft_cap_decay)
+            ),
         )
         strategies[name] = build_strategy(participant["strategy"])
 
@@ -134,9 +140,16 @@ def simulate_auction(
     for team in ordered_teams:
         caps: list[tuple[str, float]] = []
         for name, state in states.items():
+            participant_soft_cap_enabled = (
+                not state.unlimited_bankroll
+                and (state.soft_cap_decay is not None or soft_cap_enabled)
+            )
+            participant_decay = (
+                state.soft_cap_decay if state.soft_cap_decay is not None else soft_cap_decay
+            )
             if (
                 not state.unlimited_bankroll
-                and not soft_cap_enabled
+                and not participant_soft_cap_enabled
                 and state.remaining_bankroll < min_increment
             ):
                 continue
@@ -152,19 +165,19 @@ def simulate_auction(
             raw_cap = max(0.0, raw_cap)
 
             cap = raw_cap
-            if not state.unlimited_bankroll and not soft_cap_enabled:
+            if not state.unlimited_bankroll and not participant_soft_cap_enabled:
                 cap = min(state.remaining_bankroll, raw_cap)
 
             if (
                 not state.unlimited_bankroll
-                and soft_cap_enabled
+                and participant_soft_cap_enabled
                 and raw_cap > state.remaining_bankroll
             ):
                 # Crossing bankroll is probabilistic: farther above cap means lower likelihood.
                 bankroll_base = state.bankroll_total or min_increment
                 overshoot = raw_cap - state.remaining_bankroll
                 ratio = overshoot / max(bankroll_base, min_increment)
-                accept_prob = exp(-soft_cap_decay * ratio)
+                accept_prob = exp(-participant_decay * ratio)
                 if rng.random() >= accept_prob:
                     cap = min(state.remaining_bankroll, raw_cap)
 
@@ -219,6 +232,7 @@ def simulate_auction(
             "spend": state.spend,
             "remaining_bankroll": None if state.unlimited_bankroll else state.remaining_bankroll,
             "unlimited_bankroll": state.unlimited_bankroll,
+            "soft_cap_decay": state.soft_cap_decay,
             "expected_payout": expected_payout,
             "expected_profit": expected_payout - state.spend,
         }

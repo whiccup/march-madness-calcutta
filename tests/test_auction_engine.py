@@ -206,6 +206,37 @@ class AuctionEngineTests(unittest.TestCase):
         self.assertEqual(bidder["teams_won"], 1)
         self.assertGreaterEqual(float(bidder["remaining_bankroll"]), -1e-9)
 
+    def test_participant_level_soft_cap_decay_without_cli_soft_cap(self) -> None:
+        teams = build_teams()
+        odds = build_odds(teams)
+        participants = [
+            {
+                "name": "PerParticipantSoft",
+                "bankroll": 5.0,
+                "soft_cap_decay": 0.0,
+                "strategy": {
+                    "kind": "builtin",
+                    "name": "ev_threshold",
+                    "params": {"aggressiveness": 50.0},
+                },
+            }
+        ]
+        payout_rules = {"total_pot": 3000.0, "finish_percentages": {"CHAMP": 0.6, "F2": 0.2}}
+        report = simulate_auction(
+            teams=teams,
+            odds=odds,
+            payout_rules=payout_rules,
+            participants=participants,
+            runs=120,
+            seed=5,
+            min_increment=5.0,
+            soft_cap_enabled=False,
+        )
+        bidder = report["summary_by_bidder"]["PerParticipantSoft"]
+        self.assertGreater(bidder["teams_won"], 1)
+        self.assertLess(float(bidder["remaining_bankroll"]), 0.0)
+        self.assertEqual(bidder["soft_cap_decay"], 0.0)
+
 
 if __name__ == "__main__":
     unittest.main()

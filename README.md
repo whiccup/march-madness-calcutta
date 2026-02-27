@@ -69,6 +69,17 @@ python -m calcutta_sim simulate-auction \
   --soft-cap-decay 2.0
 ```
 
+Per-participant soft cap is also supported directly in `participants.json`:
+
+```json
+{
+  "name": "RiskTaker",
+  "bankroll": 300,
+  "soft_cap_decay": 1.5,
+  "strategy": { "kind": "builtin", "name": "ev_threshold", "params": { "aggressiveness": 1.2 } }
+}
+```
+
 Evaluate portfolio from a saved run:
 
 ```bash

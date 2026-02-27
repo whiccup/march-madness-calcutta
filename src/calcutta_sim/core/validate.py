@@ -108,6 +108,10 @@ def validate_auction_participants(
                 f"Participant '{name}' bankroll must be > 0 if provided with unlimited_bankroll"
             )
 
+        participant_soft_cap_decay = participant.get("soft_cap_decay")
+        if participant_soft_cap_decay is not None and float(participant_soft_cap_decay) < 0:
+            raise ValidationError(f"Participant '{name}' soft_cap_decay must be >= 0")
+
         strategy = participant.get("strategy")
         if not isinstance(strategy, dict):
             raise ValidationError(f"Participant '{name}' must include strategy object")

@@ -350,6 +350,81 @@ class IntegrationCliTests(unittest.TestCase):
             self.assertTrue(bidder["unlimited_bankroll"])
             self.assertIsNone(bidder["remaining_bankroll"])
 
+    def test_cli_simulate_auction_soft_cap_enabled(self) -> None:
+        """Soft cap mode should permit overspending beyond bankroll with low penalty."""
+
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = Path(tmpdir)
+
+            regions = ["East", "West", "South", "Midwest"]
+            teams = []
+            odds = []
+            slot = 1
+            for region in regions:
+                for seed in range(1, 17):
+                    name = f"{region}-{seed}"
+                    teams.append({"team": name, "seed": seed, "region": region, "slot": slot})
+                    odds.append({"team": name, "championship_odds": 5 + 2 * seed})
+                    slot += 1
+
+            participants = [
+                {
+                    "name": "SoftCapper",
+                    "bankroll": 5,
+                    "strategy": {
+                        "kind": "builtin",
+                        "name": "ev_threshold",
+                        "params": {"aggressiveness": 50.0},
+                    },
+                }
+            ]
+            payout_rules = {"total_pot": 1200, "finish_percentages": {"CHAMP": 0.5, "F2": 0.2}}
+
+            teams_path = tmp_path / "teams.json"
+            odds_path = tmp_path / "odds.json"
+            participants_path = tmp_path / "participants.json"
+            payout_path = tmp_path / "payout_rules.json"
+            out_path = tmp_path / "auction_soft.json"
+
+            _write_json(teams_path, teams)
+            _write_json(odds_path, odds)
+            _write_json(participants_path, participants)
+            _write_json(payout_path, payout_rules)
+
+            env = dict(os.environ)
+            env["PYTHONPATH"] = "src"
+
+            run = subprocess.run(
+                [
+                    sys.executable,
+                    "-m",
+                    "calcutta_sim",
+                    "simulate-auction",
+                    "--teams",
+                    str(teams_path),
+                    "--odds",
+                    str(odds_path),
+                    "--participants",
+                    str(participants_path),
+                    "--payout-rules",
+                    str(payout_path),
+                    "--soft-cap-enabled",
+                    "--soft-cap-decay",
+                    "0",
+                    "--runs",
+                    "80",
+                    "--output",
+                    str(out_path),
+                ],
+                capture_output=True,
+                text=True,
+                env=env,
+            )
+            self.assertEqual(run.returncode, 0, msg=run.stderr)
+            payload = json.loads(out_path.read_text(encoding="utf-8"))
+            bidder = payload["auction"]["summary_by_bidder"]["SoftCapper"]
+            self.assertGreater(bidder["teams_won"], 1)
+
 
 if __name__ == "__main__":
     unittest.main()

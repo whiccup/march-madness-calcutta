@@ -59,6 +59,16 @@ python -m calcutta_sim simulate-auction \
   --unlimited-bankroll
 ```
 
+Enable soft bankroll cap (participants can exceed cap with probability penalty):
+
+```bash
+python -m calcutta_sim simulate-auction \
+  --participants data/participants.json \
+  --payout-rules data/payout_rules.json \
+  --soft-cap-enabled \
+  --soft-cap-decay 2.0
+```
+
 Evaluate portfolio from a saved run:
 
 ```bash

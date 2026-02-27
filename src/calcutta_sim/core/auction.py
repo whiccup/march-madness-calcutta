@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from math import exp
 from random import Random
 from typing import Any
 
@@ -75,6 +76,8 @@ def simulate_auction(
     seed: int | None,
     min_increment: float,
     force_unlimited_bankroll: bool = False,
+    soft_cap_enabled: bool = False,
+    soft_cap_decay: float = 4.0,
 ) -> dict[str, Any]:
     """Simulate open-ascending auction across teams and return ledger + metrics."""
 
@@ -82,6 +85,8 @@ def simulate_auction(
         raise ValidationError("runs must be > 0")
     if min_increment <= 0:
         raise ValidationError("min_increment must be > 0")
+    if soft_cap_decay < 0:
+        raise ValidationError("soft_cap_decay must be >= 0")
 
     validate_auction_participants(
         participants=participants, force_unlimited_bankroll=force_unlimited_bankroll
@@ -129,7 +134,11 @@ def simulate_auction(
     for team in ordered_teams:
         caps: list[tuple[str, float]] = []
         for name, state in states.items():
-            if state.remaining_bankroll < min_increment:
+            if (
+                not state.unlimited_bankroll
+                and not soft_cap_enabled
+                and state.remaining_bankroll < min_increment
+            ):
                 continue
 
             context = AuctionContext(
@@ -140,7 +149,25 @@ def simulate_auction(
                 settings={"seed": seed},
             )
             raw_cap = float(strategies[name].max_bid(context=context, state=state))
-            cap = min(state.remaining_bankroll, max(0.0, raw_cap))
+            raw_cap = max(0.0, raw_cap)
+
+            cap = raw_cap
+            if not state.unlimited_bankroll and not soft_cap_enabled:
+                cap = min(state.remaining_bankroll, raw_cap)
+
+            if (
+                not state.unlimited_bankroll
+                and soft_cap_enabled
+                and raw_cap > state.remaining_bankroll
+            ):
+                # Crossing bankroll is probabilistic: farther above cap means lower likelihood.
+                bankroll_base = state.bankroll_total or min_increment
+                overshoot = raw_cap - state.remaining_bankroll
+                ratio = overshoot / max(bankroll_base, min_increment)
+                accept_prob = exp(-soft_cap_decay * ratio)
+                if rng.random() >= accept_prob:
+                    cap = min(state.remaining_bankroll, raw_cap)
+
             if cap >= min_increment:
                 caps.append((name, cap))
 
@@ -205,6 +232,8 @@ def simulate_auction(
             "min_increment": min_increment,
             "seed": seed,
             "force_unlimited_bankroll": force_unlimited_bankroll,
+            "soft_cap_enabled": soft_cap_enabled,
+            "soft_cap_decay": soft_cap_decay,
         },
         "winner_ledger": [
             {

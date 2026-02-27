@@ -147,6 +147,65 @@ class AuctionEngineTests(unittest.TestCase):
         self.assertTrue(bidder["unlimited_bankroll"])
         self.assertIsNone(bidder["remaining_bankroll"])
 
+    def test_soft_cap_allows_overspending_when_penalty_is_zero(self) -> None:
+        teams = build_teams()
+        odds = build_odds(teams)
+        participants = [
+            {
+                "name": "Soft",
+                "bankroll": 5.0,
+                "strategy": {
+                    "kind": "builtin",
+                    "name": "ev_threshold",
+                    "params": {"aggressiveness": 50.0},
+                },
+            }
+        ]
+        payout_rules = {"total_pot": 3000.0, "finish_percentages": {"CHAMP": 0.6, "F2": 0.2}}
+        report = simulate_auction(
+            teams=teams,
+            odds=odds,
+            payout_rules=payout_rules,
+            participants=participants,
+            runs=120,
+            seed=5,
+            min_increment=5.0,
+            soft_cap_enabled=True,
+            soft_cap_decay=0.0,
+        )
+        bidder = report["summary_by_bidder"]["Soft"]
+        self.assertGreater(bidder["teams_won"], 1)
+        self.assertLess(float(bidder["remaining_bankroll"]), 0.0)
+
+    def test_hard_cap_prevents_overspending(self) -> None:
+        teams = build_teams()
+        odds = build_odds(teams)
+        participants = [
+            {
+                "name": "Hard",
+                "bankroll": 5.0,
+                "strategy": {
+                    "kind": "builtin",
+                    "name": "ev_threshold",
+                    "params": {"aggressiveness": 50.0},
+                },
+            }
+        ]
+        payout_rules = {"total_pot": 3000.0, "finish_percentages": {"CHAMP": 0.6, "F2": 0.2}}
+        report = simulate_auction(
+            teams=teams,
+            odds=odds,
+            payout_rules=payout_rules,
+            participants=participants,
+            runs=120,
+            seed=5,
+            min_increment=5.0,
+            soft_cap_enabled=False,
+        )
+        bidder = report["summary_by_bidder"]["Hard"]
+        self.assertEqual(bidder["teams_won"], 1)
+        self.assertGreaterEqual(float(bidder["remaining_bankroll"]), -1e-9)
+
 
 if __name__ == "__main__":
     unittest.main()

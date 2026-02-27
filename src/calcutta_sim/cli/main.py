@@ -250,6 +250,8 @@ def cmd_simulate_auction(args: argparse.Namespace) -> int:
         seed=args.seed,
         min_increment=args.min_increment,
         force_unlimited_bankroll=args.unlimited_bankroll,
+        soft_cap_enabled=args.soft_cap_enabled,
+        soft_cap_decay=args.soft_cap_decay,
     )
     _print_auction_summary(auction_report)
 
@@ -326,6 +328,8 @@ def build_parser() -> argparse.ArgumentParser:
     auction_parser.add_argument("--seed", type=int)
     auction_parser.add_argument("--min-increment", type=float, default=5.0)
     auction_parser.add_argument("--unlimited-bankroll", action="store_true")
+    auction_parser.add_argument("--soft-cap-enabled", action="store_true")
+    auction_parser.add_argument("--soft-cap-decay", type=float, default=4.0)
     auction_parser.add_argument("--output", default="runs/auction_latest.json")
     auction_parser.set_defaults(func=cmd_simulate_auction)
 

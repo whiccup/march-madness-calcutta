@@ -5,6 +5,13 @@
   - Values `>1` are treated as decimal odds.
   - Values `<=1` are treated as implied probabilities.
 - `bids.json`: array of objects with `team`, `bid_amount`.
+- `participants.json`: array of auction participants with:
+  - `name`: unique bidder name
+  - `bankroll`: positive numeric budget cap (optional when `unlimited_bankroll: true`)
+  - `unlimited_bankroll`: optional boolean to remove spend cap for that participant
+  - `strategy`: object with:
+    - builtin: `{"kind":"builtin","name":"ev_threshold|flat_discount|seed_bias","params":{...}}`
+    - plugin: `{"kind":"plugin","path":"module.path:ClassName","params":{...}}`
 - `payout_rules.json`: object with:
   - `total_pot`: numeric
   - `finish_percentages`: map of round key to payout percentage.

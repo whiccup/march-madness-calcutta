@@ -5,13 +5,20 @@ from __future__ import annotations
 import argparse
 from datetime import datetime, UTC
 
+from calcutta_sim.core.auction import simulate_auction
 from calcutta_sim.core.io import load_json, save_json
 from calcutta_sim.core.models import Team, parse_team
 from calcutta_sim.core.odds import odds_to_strengths
 from calcutta_sim.core.portfolio import evaluate_portfolio
 from calcutta_sim.core.render import render_ascii_bracket
 from calcutta_sim.core.sim import run_simulations
-from calcutta_sim.core.validate import ValidationError, validate_odds, validate_payout_rules, validate_teams
+from calcutta_sim.core.validate import (
+    ValidationError,
+    validate_auction_participants,
+    validate_odds,
+    validate_payout_rules,
+    validate_teams,
+)
 
 
 def _load_teams(path: str) -> list[Team]:
@@ -78,6 +85,40 @@ def _print_portfolio(report: dict) -> None:
             f"payout ${row['expected_payout']:<8.2f} "
             f"profit ${row['expected_profit']:<8.2f}"
         )
+
+
+def _print_auction_summary(report: dict) -> None:
+    """Print bidder-level auction outcomes and EV metrics."""
+
+    print("\nAuction summary by bidder:")
+    for bidder, row in sorted(
+        report["summary_by_bidder"].items(), key=lambda x: x[1]["expected_profit"], reverse=True
+    ):
+        remaining = (
+            "unlimited"
+            if row.get("unlimited_bankroll")
+            else f"${float(row['remaining_bankroll']):.2f}"
+        )
+        print(
+            f"  {bidder:<20} "
+            f"teams {row['teams_won']:<2} "
+            f"spend ${row['spend']:<9.2f} "
+            f"remain {remaining:<10} "
+            f"EV payout ${row['expected_payout']:<9.2f} "
+            f"EV profit ${row['expected_profit']:<9.2f}"
+        )
+        if row["purchased_teams"]:
+            print("    purchased:")
+            for team in row["purchased_teams"]:
+                print(
+                    f"      {team['team']:<20} "
+                    f"seed {team['seed']:<2} "
+                    f"region {team['region']:<8} "
+                    f"slot {team['slot']:<2} "
+                    f"price ${team['price']:.2f}"
+                )
+
+    print(f"\nUnsold teams: {report['unsold_count']}")
 
 
 def cmd_validate_data(args: argparse.Namespace) -> int:
@@ -184,6 +225,58 @@ def cmd_render_bracket(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_simulate_auction(args: argparse.Namespace) -> int:
+    """Run open-ascending Calcutta auction simulation and persist results."""
+
+    teams = _load_teams(args.teams)
+    odds = _load_odds(args.odds)
+    payout_rules = load_json(args.payout_rules)
+    participants = load_json(args.participants)
+
+    validate_teams(teams)
+    validate_odds(teams, odds)
+    validate_payout_rules(payout_rules.get("finish_percentages", {}))
+    validate_auction_participants(
+        participants=participants,
+        force_unlimited_bankroll=args.unlimited_bankroll,
+    )
+
+    auction_report = simulate_auction(
+        teams=teams,
+        odds=odds,
+        payout_rules=payout_rules,
+        participants=participants,
+        runs=args.runs,
+        seed=args.seed,
+        min_increment=args.min_increment,
+        force_unlimited_bankroll=args.unlimited_bankroll,
+    )
+    _print_auction_summary(auction_report)
+
+    payload = {
+        "metadata": {
+            "timestamp": datetime.now(UTC).isoformat(),
+            "runs": args.runs,
+            "seed": args.seed,
+            "model": "open_ascending_expected_value",
+        },
+        "auction": {
+            "settings": auction_report["settings"],
+            "winner_ledger": auction_report["winner_ledger"],
+            "summary_by_bidder": auction_report["summary_by_bidder"],
+            "ownership": auction_report["ownership"],
+            "team_expected_values": auction_report["team_expected_values"],
+            "total_pot": auction_report["total_pot"],
+            "unsold_teams": auction_report["unsold_teams"],
+            "unsold_count": auction_report["unsold_count"],
+        },
+        "simulation_summary": auction_report["simulation_summary"],
+    }
+    save_json(args.output, payload)
+    print(f"\nSaved auction results to {args.output}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     """Create the full argument parser with all subcommands."""
 
@@ -221,6 +314,20 @@ def build_parser() -> argparse.ArgumentParser:
     render_parser.add_argument("--odds", default="data/odds.json")
     render_parser.add_argument("--seed", type=int)
     render_parser.set_defaults(func=cmd_render_bracket)
+
+    auction_parser = subparsers.add_parser(
+        "simulate-auction", help="Run open-ascending auction simulation"
+    )
+    auction_parser.add_argument("--teams", default="data/teams.json")
+    auction_parser.add_argument("--odds", default="data/odds.json")
+    auction_parser.add_argument("--payout-rules", default="data/payout_rules.json")
+    auction_parser.add_argument("--participants", default="data/participants.json")
+    auction_parser.add_argument("--runs", type=int, default=10000)
+    auction_parser.add_argument("--seed", type=int)
+    auction_parser.add_argument("--min-increment", type=float, default=5.0)
+    auction_parser.add_argument("--unlimited-bankroll", action="store_true")
+    auction_parser.add_argument("--output", default="runs/auction_latest.json")
+    auction_parser.set_defaults(func=cmd_simulate_auction)
 
     return parser
 

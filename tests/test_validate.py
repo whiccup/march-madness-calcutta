@@ -4,7 +4,12 @@ from __future__ import annotations
 
 import unittest
 
-from calcutta_sim.core.validate import ValidationError, validate_odds, validate_teams
+from calcutta_sim.core.validate import (
+    ValidationError,
+    validate_auction_participants,
+    validate_odds,
+    validate_teams,
+)
 from tests.helpers import build_odds, build_teams
 
 
@@ -32,6 +37,36 @@ class ValidateTests(unittest.TestCase):
         odds.pop(teams[0].team)
         with self.assertRaises(ValidationError):
             validate_odds(teams, odds)
+
+    def test_validate_auction_participants_rejects_duplicate_names(self) -> None:
+        """Reject participant configs with duplicate bidder names."""
+
+        participants = [
+            {
+                "name": "A",
+                "bankroll": 100,
+                "strategy": {"kind": "builtin", "name": "ev_threshold", "params": {}},
+            },
+            {
+                "name": "A",
+                "bankroll": 120,
+                "strategy": {"kind": "builtin", "name": "flat_discount", "params": {}},
+            },
+        ]
+        with self.assertRaises(ValidationError):
+            validate_auction_participants(participants)
+
+    def test_validate_auction_participants_allows_unlimited_without_bankroll(self) -> None:
+        """Allow missing bankroll when unlimited bankroll is explicitly enabled."""
+
+        participants = [
+            {
+                "name": "A",
+                "unlimited_bankroll": True,
+                "strategy": {"kind": "builtin", "name": "ev_threshold", "params": {}},
+            }
+        ]
+        validate_auction_participants(participants)
 
 
 if __name__ == "__main__":

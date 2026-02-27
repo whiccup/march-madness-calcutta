@@ -1,4 +1,4 @@
-"""Input validation for teams, odds, and payout configuration."""
+"""Input validation for teams, odds, payout configuration, and auctions."""
 
 from __future__ import annotations
 
@@ -73,3 +73,65 @@ def validate_payout_rules(finish_percentages: dict[str, float]) -> None:
     total = sum(finish_percentages.values())
     if total > 1.000001:
         raise ValidationError("Sum of payout percentages cannot exceed 1.0")
+
+
+def validate_auction_participants(
+    participants: list[dict], force_unlimited_bankroll: bool = False
+) -> None:
+    """Validate participant definitions and strategy shape for auction simulation."""
+
+    if not participants:
+        raise ValidationError("At least one participant is required")
+
+    names: list[str] = []
+    for idx, participant in enumerate(participants):
+        if not isinstance(participant, dict):
+            raise ValidationError(f"Participant index {idx} must be an object")
+
+        name = str(participant.get("name", "")).strip()
+        if not name:
+            raise ValidationError(f"Participant index {idx} missing non-empty 'name'")
+        names.append(name)
+
+        unlimited_bankroll = bool(participant.get("unlimited_bankroll", False))
+        if force_unlimited_bankroll:
+            unlimited_bankroll = True
+
+        bankroll = participant.get("bankroll")
+        if not unlimited_bankroll:
+            if bankroll is None or float(bankroll) <= 0:
+                raise ValidationError(
+                    f"Participant '{name}' must have bankroll > 0 unless unlimited_bankroll is true"
+                )
+        elif bankroll is not None and float(bankroll) <= 0:
+            raise ValidationError(
+                f"Participant '{name}' bankroll must be > 0 if provided with unlimited_bankroll"
+            )
+
+        strategy = participant.get("strategy")
+        if not isinstance(strategy, dict):
+            raise ValidationError(f"Participant '{name}' must include strategy object")
+
+        kind = strategy.get("kind")
+        if kind not in {"builtin", "plugin"}:
+            raise ValidationError(f"Participant '{name}' strategy.kind must be builtin or plugin")
+
+        params = strategy.get("params", {})
+        if not isinstance(params, dict):
+            raise ValidationError(f"Participant '{name}' strategy.params must be an object")
+
+        if kind == "builtin":
+            strategy_name = str(strategy.get("name", "")).strip()
+            if not strategy_name:
+                raise ValidationError(f"Participant '{name}' builtin strategy must include 'name'")
+
+        if kind == "plugin":
+            path = str(strategy.get("path", "")).strip()
+            if not path or ":" not in path:
+                raise ValidationError(
+                    f"Participant '{name}' plugin strategy path must be module.path:ClassName"
+                )
+
+    dup_names = [n for n, c in Counter(names).items() if c > 1]
+    if dup_names:
+        raise ValidationError(f"Duplicate participant names: {', '.join(sorted(dup_names))}")

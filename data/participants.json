@@ -1,0 +1,36 @@
+[
+  {
+    "name": "ValueHunter",
+    "bankroll": 450.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "ev_threshold",
+      "params": {
+        "aggressiveness": 0.95
+      }
+    }
+  },
+  {
+    "name": "SeedBeliever",
+    "bankroll": 400.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "seed_bias",
+      "params": {
+        "base_aggressiveness": 0.85,
+        "seed_weight": 0.25
+      }
+    }
+  },
+  {
+    "name": "DiscountShopper",
+    "bankroll": 350.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "flat_discount",
+      "params": {
+        "discount": 2.5
+      }
+    }
+  }
+]

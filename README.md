@@ -36,6 +36,29 @@ python -m calcutta_sim simulate \
   --output runs/latest.json
 ```
 
+Run Calcutta auction-space simulation:
+
+```bash
+python -m calcutta_sim simulate-auction \
+  --teams data/teams.json \
+  --odds data/odds.json \
+  --participants data/participants.json \
+  --payout-rules data/payout_rules.json \
+  --runs 20000 \
+  --seed 42 \
+  --min-increment 5 \
+  --output runs/auction_latest.json
+```
+
+Enable unlimited bankroll globally for all participants:
+
+```bash
+python -m calcutta_sim simulate-auction \
+  --participants data/participants.json \
+  --payout-rules data/payout_rules.json \
+  --unlimited-bankroll
+```
+
 Evaluate portfolio from a saved run:
 
 ```bash

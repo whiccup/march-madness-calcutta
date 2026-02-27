@@ -1,9 +1,13 @@
+"""ASCII rendering utilities for simulated bracket outputs."""
+
 from __future__ import annotations
 
 from collections import defaultdict
 
 
 def render_ascii_bracket(game_log: list[dict]) -> str:
+    """Render a round-by-round text bracket from a simulated game log."""
+
     by_round: dict[str, list[dict]] = defaultdict(list)
     round_order = ["R64", "R32", "S16", "E8", "F4", "F2"]
 

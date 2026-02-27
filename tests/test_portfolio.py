@@ -1,3 +1,5 @@
+"""Portfolio EV/profit calculation unit tests."""
+
 from __future__ import annotations
 
 import unittest
@@ -6,7 +8,11 @@ from calcutta_sim.core.portfolio import evaluate_portfolio
 
 
 class PortfolioTests(unittest.TestCase):
+    """Covers expected profit arithmetic consistency."""
+
     def test_portfolio_expected_profit_matches_formula(self) -> None:
+        """Expected profit must equal expected payout minus total spend."""
+
         bids = [
             {"team": "A", "bid_amount": 100.0},
             {"team": "B", "bid_amount": 50.0},

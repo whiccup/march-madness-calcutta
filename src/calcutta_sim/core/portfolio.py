@@ -1,3 +1,5 @@
+"""Expected payout and profit calculations for owned Calcutta teams."""
+
 from __future__ import annotations
 
 from calcutta_sim.core.models import ROUND_ORDER
@@ -9,6 +11,8 @@ def evaluate_portfolio(
     finish_counts: dict[str, dict[str, int]],
     total_runs: int,
 ) -> dict:
+    """Compute team-level and total expected payout/profit from simulation output."""
+
     if total_runs <= 0:
         raise ValueError("total_runs must be > 0")
 

@@ -1,3 +1,5 @@
+"""Bracket simulation primitives and aggregate statistics helpers."""
+
 from __future__ import annotations
 
 from collections import defaultdict
@@ -20,6 +22,8 @@ NEXT_ROUND = {
 
 @dataclass
 class GameResult:
+    """Single simulated game result."""
+
     round_name: str
     team_a: str
     team_b: str
@@ -28,12 +32,16 @@ class GameResult:
 
 @dataclass
 class TournamentResult:
+    """Outputs for one simulated tournament run."""
+
     champion: str
     deepest_round: dict[str, str]
     game_log: list[GameResult]
 
 
 def _initial_pairings(teams: list[Team]) -> list[tuple[str, str]]:
+    """Build first-round pairings from fixed team slot ordering."""
+
     slot_to_team = {team.slot: team.team for team in teams}
     return [(slot_to_team[i], slot_to_team[i + 1]) for i in range(1, 65, 2)]
 
@@ -41,6 +49,8 @@ def _initial_pairings(teams: list[Team]) -> list[tuple[str, str]]:
 def simulate_tournament(
     teams: list[Team], strengths: dict[str, float], rng: Random
 ) -> TournamentResult:
+    """Simulate one full bracket and return champion, finishes, and game log."""
+
     deepest = {team.team: "R64" for team in teams}
     game_log: list[GameResult] = []
 
@@ -77,6 +87,8 @@ def simulate_tournament(
 
 
 def aggregate_results(results: list[TournamentResult]) -> dict:
+    """Aggregate many tournament runs into probabilities and finish counts."""
+
     if not results:
         raise ValueError("No results to aggregate")
 

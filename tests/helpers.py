@@ -1,9 +1,13 @@
+"""Shared test fixtures for synthetic team and odds data."""
+
 from __future__ import annotations
 
 from calcutta_sim.core.models import Team
 
 
 def build_teams() -> list[Team]:
+    """Create a valid deterministic 64-team bracket fixture."""
+
     regions = ["East", "West", "South", "Midwest"]
     teams: list[Team] = []
     slot = 1
@@ -15,6 +19,8 @@ def build_teams() -> list[Team]:
 
 
 def build_odds(teams: list[Team]) -> dict[str, float]:
+    """Create monotonically worse odds for higher seed numbers."""
+
     odds = {}
     for team in teams:
         # Better seeds get better championship odds.

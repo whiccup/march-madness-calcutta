@@ -1,3 +1,5 @@
+"""Test configuration for local package import resolution."""
+
 from __future__ import annotations
 
 import sys

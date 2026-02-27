@@ -1,3 +1,5 @@
+"""Top-level Monte Carlo simulation orchestration."""
+
 from __future__ import annotations
 
 from random import Random
@@ -9,6 +11,8 @@ from calcutta_sim.core.models import Team
 def run_simulations(
     teams: list[Team], strengths: dict[str, float], runs: int, seed: int | None
 ) -> tuple[dict, dict]:
+    """Run multiple bracket simulations and return summary plus one sample path."""
+
     if runs <= 0:
         raise ValueError("runs must be > 0")
 

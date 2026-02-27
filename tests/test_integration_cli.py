@@ -1,3 +1,5 @@
+"""Integration tests for end-to-end CLI command flows."""
+
 from __future__ import annotations
 
 import json
@@ -10,11 +12,17 @@ from pathlib import Path
 
 
 def _write_json(path: Path, payload: object) -> None:
+    """Write JSON payload to disk for test fixtures."""
+
     path.write_text(json.dumps(payload), encoding="utf-8")
 
 
 class IntegrationCliTests(unittest.TestCase):
+    """Verifies simulate + portfolio commands work together."""
+
     def test_cli_simulate_and_portfolio(self) -> None:
+        """Run a full CLI pipeline and validate expected output artifacts."""
+
         with tempfile.TemporaryDirectory() as tmpdir:
             tmp_path = Path(tmpdir)
 

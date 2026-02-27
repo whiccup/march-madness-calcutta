@@ -1,3 +1,5 @@
+"""Command-line interface for simulation, reporting, and data validation."""
+
 from __future__ import annotations
 
 import argparse
@@ -13,11 +15,15 @@ from calcutta_sim.core.validate import ValidationError, validate_odds, validate_
 
 
 def _load_teams(path: str) -> list[Team]:
+    """Load and parse team records from JSON."""
+
     raw = load_json(path)
     return [parse_team(item) for item in raw]
 
 
 def _load_odds(path: str) -> dict[str, float]:
+    """Load odds from JSON list or mapping formats."""
+
     raw = load_json(path)
     if isinstance(raw, list):
         return {str(item["team"]): float(item["championship_odds"]) for item in raw}
@@ -25,6 +31,8 @@ def _load_odds(path: str) -> dict[str, float]:
 
 
 def _print_champion_probs(summary: dict, limit: int = 20) -> None:
+    """Print champion probabilities sorted descending."""
+
     print("\nChampion probabilities (top teams):")
     sorted_probs = sorted(
         summary["champion_probabilities"].items(), key=lambda x: x[1], reverse=True
@@ -34,6 +42,8 @@ def _print_champion_probs(summary: dict, limit: int = 20) -> None:
 
 
 def _print_round_reach(summary: dict, limit: int = 20) -> None:
+    """Print per-round reach probabilities for top teams."""
+
     print("\nRound reach probabilities (top teams by title odds):")
     sorted_teams = sorted(
         summary["champion_probabilities"].items(), key=lambda x: x[1], reverse=True
@@ -52,6 +62,8 @@ def _print_round_reach(summary: dict, limit: int = 20) -> None:
 
 
 def _print_portfolio(report: dict) -> None:
+    """Print formatted portfolio EV and team contribution metrics."""
+
     print("\nPortfolio summary:")
     print(f"  Total pot:        ${report['total_pot']:.2f}")
     print(f"  Total spend:      ${report['total_spend']:.2f}")
@@ -69,6 +81,8 @@ def _print_portfolio(report: dict) -> None:
 
 
 def cmd_validate_data(args: argparse.Namespace) -> int:
+    """Validate input data files and return process exit code."""
+
     teams = _load_teams(args.teams)
     odds = _load_odds(args.odds)
     validate_teams(teams)
@@ -83,6 +97,8 @@ def cmd_validate_data(args: argparse.Namespace) -> int:
 
 
 def cmd_simulate(args: argparse.Namespace) -> int:
+    """Run Monte Carlo simulation, print summary, and optionally save output."""
+
     teams = _load_teams(args.teams)
     odds = _load_odds(args.odds)
 
@@ -131,6 +147,8 @@ def cmd_simulate(args: argparse.Namespace) -> int:
 
 
 def cmd_portfolio(args: argparse.Namespace) -> int:
+    """Compute and print portfolio EV/profit from a saved simulation artifact."""
+
     bids = load_json(args.bids)
     payout_rules = load_json(args.payout_rules)
     validate_payout_rules(payout_rules.get("finish_percentages", {}))
@@ -148,6 +166,8 @@ def cmd_portfolio(args: argparse.Namespace) -> int:
 
 
 def cmd_render_bracket(args: argparse.Namespace) -> int:
+    """Render an ASCII bracket from saved output or a one-off simulation."""
+
     if args.sim_results:
         sim_results = load_json(args.sim_results)
         game_log = sim_results["sample_bracket"]["game_log"]
@@ -165,6 +185,8 @@ def cmd_render_bracket(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    """Create the full argument parser with all subcommands."""
+
     parser = argparse.ArgumentParser(prog="calcutta-sim")
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -204,6 +226,8 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main() -> int:
+    """CLI entrypoint with standardized error handling and exit codes."""
+
     parser = build_parser()
     args = parser.parse_args()
 

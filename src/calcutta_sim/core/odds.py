@@ -1,7 +1,11 @@
+"""Odds normalization and matchup probability helpers."""
+
 from __future__ import annotations
 
 
 def _to_implied_probability(value: float) -> float:
+    """Convert decimal odds (>1) or passthrough implied probability (<=1)."""
+
     # Values <=1 are treated as probability; >1 as decimal odds.
     if value <= 1.0:
         return value
@@ -9,6 +13,8 @@ def _to_implied_probability(value: float) -> float:
 
 
 def odds_to_strengths(raw_odds: dict[str, float]) -> dict[str, float]:
+    """Convert team-level title odds into normalized latent strengths."""
+
     implied = {team: _to_implied_probability(value) for team, value in raw_odds.items()}
     total = sum(implied.values())
     if total <= 0:
@@ -20,6 +26,8 @@ def odds_to_strengths(raw_odds: dict[str, float]) -> dict[str, float]:
 
 
 def win_probability(team_a: str, team_b: str, strengths: dict[str, float]) -> float:
+    """Compute head-to-head win probability from relative strengths."""
+
     a = strengths[team_a]
     b = strengths[team_b]
     return a / (a + b)

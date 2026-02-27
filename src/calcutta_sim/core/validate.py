@@ -1,3 +1,5 @@
+"""Input validation for teams, odds, and payout configuration."""
+
 from __future__ import annotations
 
 from collections import Counter, defaultdict
@@ -6,10 +8,14 @@ from calcutta_sim.core.models import ROUND_ORDER, Team
 
 
 class ValidationError(ValueError):
+    """Raised when user-provided input data fails structural validation."""
+
     pass
 
 
 def validate_teams(teams: list[Team]) -> None:
+    """Validate that teams represent a complete 64-team seeded bracket."""
+
     if len(teams) != 64:
         raise ValidationError(f"Expected 64 teams, found {len(teams)}")
 
@@ -37,6 +43,8 @@ def validate_teams(teams: list[Team]) -> None:
 
 
 def validate_odds(teams: list[Team], odds: dict[str, float]) -> None:
+    """Validate odds coverage and positivity against the provided team set."""
+
     team_set = {t.team for t in teams}
     missing = sorted(team_set - set(odds))
     if missing:
@@ -52,6 +60,8 @@ def validate_odds(teams: list[Team], odds: dict[str, float]) -> None:
 
 
 def validate_payout_rules(finish_percentages: dict[str, float]) -> None:
+    """Validate payout keys and ensure percentages are non-negative and bounded."""
+
     unknown = sorted(set(finish_percentages) - set(ROUND_ORDER))
     if unknown:
         raise ValidationError(f"Unknown payout finish keys: {', '.join(unknown)}")

@@ -8,5 +8,6 @@
 - `payout_rules.json`: object with:
   - `total_pot`: numeric
   - `finish_percentages`: map of round key to payout percentage.
+  - `special_percentages`: optional map for non-round awards (for example `BIGGEST_LOSER`).
 
 Valid finish keys: `R64`, `R32`, `S16`, `E8`, `F4`, `F2`, `CHAMP`.

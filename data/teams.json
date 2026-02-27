@@ -1,1 +1,386 @@
-[]
+[
+  {
+    "team": "Duke",
+    "seed": 1,
+    "region": "East",
+    "slot": 1
+  },
+  {
+    "team": "UT Martin",
+    "seed": 16,
+    "region": "East",
+    "slot": 2
+  },
+  {
+    "team": "Indiana",
+    "seed": 8,
+    "region": "East",
+    "slot": 3
+  },
+  {
+    "team": "UCF",
+    "seed": 9,
+    "region": "East",
+    "slot": 4
+  },
+  {
+    "team": "St. John's",
+    "seed": 5,
+    "region": "East",
+    "slot": 5
+  },
+  {
+    "team": "South Florida",
+    "seed": 12,
+    "region": "East",
+    "slot": 6
+  },
+  {
+    "team": "Vanderbilt",
+    "seed": 4,
+    "region": "East",
+    "slot": 7
+  },
+  {
+    "team": "Hawaii",
+    "seed": 13,
+    "region": "East",
+    "slot": 8
+  },
+  {
+    "team": "Arkansas",
+    "seed": 6,
+    "region": "East",
+    "slot": 9
+  },
+  {
+    "team": "Ohio State",
+    "seed": 11,
+    "region": "East",
+    "slot": 10
+  },
+  {
+    "team": "Kansas",
+    "seed": 3,
+    "region": "East",
+    "slot": 11
+  },
+  {
+    "team": "Troy",
+    "seed": 14,
+    "region": "East",
+    "slot": 12
+  },
+  {
+    "team": "Clemson",
+    "seed": 7,
+    "region": "East",
+    "slot": 13
+  },
+  {
+    "team": "Texas",
+    "seed": 10,
+    "region": "East",
+    "slot": 14
+  },
+  {
+    "team": "Illinois",
+    "seed": 2,
+    "region": "East",
+    "slot": 15
+  },
+  {
+    "team": "East Tennessee State",
+    "seed": 15,
+    "region": "East",
+    "slot": 16
+  },
+  {
+    "team": "Arizona",
+    "seed": 1,
+    "region": "West",
+    "slot": 17
+  },
+  {
+    "team": "NJIT",
+    "seed": 16,
+    "region": "West",
+    "slot": 18
+  },
+  {
+    "team": "Texas A&M",
+    "seed": 8,
+    "region": "West",
+    "slot": 19
+  },
+  {
+    "team": "Wisconsin",
+    "seed": 9,
+    "region": "West",
+    "slot": 20
+  },
+  {
+    "team": "Louisville",
+    "seed": 5,
+    "region": "West",
+    "slot": 21
+  },
+  {
+    "team": "Liberty",
+    "seed": 12,
+    "region": "West",
+    "slot": 22
+  },
+  {
+    "team": "Gonzaga",
+    "seed": 4,
+    "region": "West",
+    "slot": 23
+  },
+  {
+    "team": "Cal Baptist",
+    "seed": 13,
+    "region": "West",
+    "slot": 24
+  },
+  {
+    "team": "Iowa",
+    "seed": 6,
+    "region": "West",
+    "slot": 25
+  },
+  {
+    "team": "Santa Clara",
+    "seed": 11,
+    "region": "West",
+    "slot": 26
+  },
+  {
+    "team": "Florida",
+    "seed": 3,
+    "region": "West",
+    "slot": 27
+  },
+  {
+    "team": "Portland State",
+    "seed": 14,
+    "region": "West",
+    "slot": 28
+  },
+  {
+    "team": "BYU",
+    "seed": 7,
+    "region": "West",
+    "slot": 29
+  },
+  {
+    "team": "Saint Mary's",
+    "seed": 10,
+    "region": "West",
+    "slot": 30
+  },
+  {
+    "team": "Nebraska",
+    "seed": 2,
+    "region": "West",
+    "slot": 31
+  },
+  {
+    "team": "Navy",
+    "seed": 15,
+    "region": "West",
+    "slot": 32
+  },
+  {
+    "team": "UConn",
+    "seed": 1,
+    "region": "South",
+    "slot": 33
+  },
+  {
+    "team": "Merrimack",
+    "seed": 16,
+    "region": "South",
+    "slot": 34
+  },
+  {
+    "team": "Auburn",
+    "seed": 8,
+    "region": "South",
+    "slot": 35
+  },
+  {
+    "team": "SMU",
+    "seed": 9,
+    "region": "South",
+    "slot": 36
+  },
+  {
+    "team": "Virginia",
+    "seed": 5,
+    "region": "South",
+    "slot": 37
+  },
+  {
+    "team": "Yale",
+    "seed": 12,
+    "region": "South",
+    "slot": 38
+  },
+  {
+    "team": "Texas Tech",
+    "seed": 4,
+    "region": "South",
+    "slot": 39
+  },
+  {
+    "team": "Stephen F. Austin",
+    "seed": 13,
+    "region": "South",
+    "slot": 40
+  },
+  {
+    "team": "Alabama",
+    "seed": 6,
+    "region": "South",
+    "slot": 41
+  },
+  {
+    "team": "Miami (Ohio)",
+    "seed": 11,
+    "region": "South",
+    "slot": 42
+  },
+  {
+    "team": "Michigan State",
+    "seed": 3,
+    "region": "South",
+    "slot": 43
+  },
+  {
+    "team": "North Dakota State",
+    "seed": 14,
+    "region": "South",
+    "slot": 44
+  },
+  {
+    "team": "Saint Louis",
+    "seed": 7,
+    "region": "South",
+    "slot": 45
+  },
+  {
+    "team": "Georgia",
+    "seed": 10,
+    "region": "South",
+    "slot": 46
+  },
+  {
+    "team": "Houston",
+    "seed": 2,
+    "region": "South",
+    "slot": 47
+  },
+  {
+    "team": "Wright State",
+    "seed": 15,
+    "region": "South",
+    "slot": 48
+  },
+  {
+    "team": "Michigan",
+    "seed": 1,
+    "region": "Midwest",
+    "slot": 49
+  },
+  {
+    "team": "LIU",
+    "seed": 16,
+    "region": "Midwest",
+    "slot": 50
+  },
+  {
+    "team": "NC State",
+    "seed": 8,
+    "region": "Midwest",
+    "slot": 51
+  },
+  {
+    "team": "Utah State",
+    "seed": 9,
+    "region": "Midwest",
+    "slot": 52
+  },
+  {
+    "team": "Tennessee",
+    "seed": 5,
+    "region": "Midwest",
+    "slot": 53
+  },
+  {
+    "team": "Belmont",
+    "seed": 12,
+    "region": "Midwest",
+    "slot": 54
+  },
+  {
+    "team": "North Carolina",
+    "seed": 4,
+    "region": "Midwest",
+    "slot": 55
+  },
+  {
+    "team": "UNC Wilmington",
+    "seed": 13,
+    "region": "Midwest",
+    "slot": 56
+  },
+  {
+    "team": "Kentucky",
+    "seed": 6,
+    "region": "Midwest",
+    "slot": 57
+  },
+  {
+    "team": "UCLA",
+    "seed": 11,
+    "region": "Midwest",
+    "slot": 58
+  },
+  {
+    "team": "Purdue",
+    "seed": 3,
+    "region": "Midwest",
+    "slot": 59
+  },
+  {
+    "team": "Winthrop",
+    "seed": 14,
+    "region": "Midwest",
+    "slot": 60
+  },
+  {
+    "team": "Villanova",
+    "seed": 7,
+    "region": "Midwest",
+    "slot": 61
+  },
+  {
+    "team": "USC",
+    "seed": 10,
+    "region": "Midwest",
+    "slot": 62
+  },
+  {
+    "team": "Iowa State",
+    "seed": 2,
+    "region": "Midwest",
+    "slot": 63
+  },
+  {
+    "team": "Austin Peay",
+    "seed": 15,
+    "region": "Midwest",
+    "slot": 64
+  }
+]

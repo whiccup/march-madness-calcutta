@@ -1,1 +1,50 @@
-[]
+[
+  {
+    "team": "Duke",
+    "bid_amount": 1180
+  },
+  {
+    "team": "Michigan",
+    "bid_amount": 1110
+  },
+  {
+    "team": "Arizona",
+    "bid_amount": 1080
+  },
+  {
+    "team": "UConn",
+    "bid_amount": 1040
+  },
+  {
+    "team": "Houston",
+    "bid_amount": 820
+  },
+  {
+    "team": "Illinois",
+    "bid_amount": 690
+  },
+  {
+    "team": "Purdue",
+    "bid_amount": 620
+  },
+  {
+    "team": "Kansas",
+    "bid_amount": 590
+  },
+  {
+    "team": "St. John's",
+    "bid_amount": 430
+  },
+  {
+    "team": "BYU",
+    "bid_amount": 360
+  },
+  {
+    "team": "UCLA",
+    "bid_amount": 270
+  },
+  {
+    "team": "Belmont",
+    "bid_amount": 120
+  }
+]

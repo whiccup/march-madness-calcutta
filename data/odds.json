@@ -1,1 +1,258 @@
-[]
+[
+  {
+    "team": "Duke",
+    "championship_odds": 7.5
+  },
+  {
+    "team": "UT Martin",
+    "championship_odds": 35.9
+  },
+  {
+    "team": "Indiana",
+    "championship_odds": 20.7
+  },
+  {
+    "team": "UCF",
+    "championship_odds": 22.6
+  },
+  {
+    "team": "St. John's",
+    "championship_odds": 15.0
+  },
+  {
+    "team": "South Florida",
+    "championship_odds": 28.3
+  },
+  {
+    "team": "Vanderbilt",
+    "championship_odds": 13.1
+  },
+  {
+    "team": "Hawaii",
+    "championship_odds": 30.2
+  },
+  {
+    "team": "Arkansas",
+    "championship_odds": 16.9
+  },
+  {
+    "team": "Ohio State",
+    "championship_odds": 26.4
+  },
+  {
+    "team": "Kansas",
+    "championship_odds": 16.5
+  },
+  {
+    "team": "Troy",
+    "championship_odds": 32.1
+  },
+  {
+    "team": "Clemson",
+    "championship_odds": 18.8
+  },
+  {
+    "team": "Texas",
+    "championship_odds": 24.5
+  },
+  {
+    "team": "Illinois",
+    "championship_odds": 13.0
+  },
+  {
+    "team": "East Tennessee State",
+    "championship_odds": 34.0
+  },
+  {
+    "team": "Arizona",
+    "championship_odds": 8.0
+  },
+  {
+    "team": "NJIT",
+    "championship_odds": 36.3
+  },
+  {
+    "team": "Texas A&M",
+    "championship_odds": 21.1
+  },
+  {
+    "team": "Wisconsin",
+    "championship_odds": 23.0
+  },
+  {
+    "team": "Louisville",
+    "championship_odds": 15.4
+  },
+  {
+    "team": "Liberty",
+    "championship_odds": 28.7
+  },
+  {
+    "team": "Gonzaga",
+    "championship_odds": 13.5
+  },
+  {
+    "team": "Cal Baptist",
+    "championship_odds": 30.6
+  },
+  {
+    "team": "Iowa",
+    "championship_odds": 17.3
+  },
+  {
+    "team": "Santa Clara",
+    "championship_odds": 26.8
+  },
+  {
+    "team": "Florida",
+    "championship_odds": 18.0
+  },
+  {
+    "team": "Portland State",
+    "championship_odds": 32.5
+  },
+  {
+    "team": "BYU",
+    "championship_odds": 19.2
+  },
+  {
+    "team": "Saint Mary's",
+    "championship_odds": 24.9
+  },
+  {
+    "team": "Nebraska",
+    "championship_odds": 15.0
+  },
+  {
+    "team": "Navy",
+    "championship_odds": 34.4
+  },
+  {
+    "team": "UConn",
+    "championship_odds": 8.5
+  },
+  {
+    "team": "Merrimack",
+    "championship_odds": 36.1
+  },
+  {
+    "team": "Auburn",
+    "championship_odds": 20.9
+  },
+  {
+    "team": "SMU",
+    "championship_odds": 22.8
+  },
+  {
+    "team": "Virginia",
+    "championship_odds": 15.2
+  },
+  {
+    "team": "Yale",
+    "championship_odds": 28.5
+  },
+  {
+    "team": "Texas Tech",
+    "championship_odds": 13.3
+  },
+  {
+    "team": "Stephen F. Austin",
+    "championship_odds": 30.4
+  },
+  {
+    "team": "Alabama",
+    "championship_odds": 17.1
+  },
+  {
+    "team": "Miami (Ohio)",
+    "championship_odds": 26.6
+  },
+  {
+    "team": "Michigan State",
+    "championship_odds": 17.0
+  },
+  {
+    "team": "North Dakota State",
+    "championship_odds": 32.3
+  },
+  {
+    "team": "Saint Louis",
+    "championship_odds": 19.0
+  },
+  {
+    "team": "Georgia",
+    "championship_odds": 24.7
+  },
+  {
+    "team": "Houston",
+    "championship_odds": 11.0
+  },
+  {
+    "team": "Wright State",
+    "championship_odds": 34.2
+  },
+  {
+    "team": "Michigan",
+    "championship_odds": 8.0
+  },
+  {
+    "team": "LIU",
+    "championship_odds": 36.0
+  },
+  {
+    "team": "NC State",
+    "championship_odds": 20.8
+  },
+  {
+    "team": "Utah State",
+    "championship_odds": 22.7
+  },
+  {
+    "team": "Tennessee",
+    "championship_odds": 15.1
+  },
+  {
+    "team": "Belmont",
+    "championship_odds": 28.4
+  },
+  {
+    "team": "North Carolina",
+    "championship_odds": 13.2
+  },
+  {
+    "team": "UNC Wilmington",
+    "championship_odds": 30.3
+  },
+  {
+    "team": "Kentucky",
+    "championship_odds": 17.0
+  },
+  {
+    "team": "UCLA",
+    "championship_odds": 26.5
+  },
+  {
+    "team": "Purdue",
+    "championship_odds": 16.0
+  },
+  {
+    "team": "Winthrop",
+    "championship_odds": 32.2
+  },
+  {
+    "team": "Villanova",
+    "championship_odds": 18.9
+  },
+  {
+    "team": "USC",
+    "championship_odds": 24.6
+  },
+  {
+    "team": "Iowa State",
+    "championship_odds": 12.0
+  },
+  {
+    "team": "Austin Peay",
+    "championship_odds": 34.1
+  }
+]

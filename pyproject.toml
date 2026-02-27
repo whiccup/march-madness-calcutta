@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calcutta-sim"
+version = "0.1.0"
+description = "March Madness Calcutta simulator"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Calcutta Sim" }]
+dependencies = []
+
+[project.scripts]
+calcutta-sim = "calcutta_sim.cli.main:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,258 @@
+[
+  {
+    "team": "Duke",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "UT Martin",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Indiana",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "UCF",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "St. John's",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "South Florida",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Vanderbilt",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Hawaii",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Arkansas",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Ohio State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Kansas",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Troy",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Clemson",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Texas",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Illinois",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "East Tennessee State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Arizona",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "NJIT",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Texas A&M",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Wisconsin",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Louisville",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Liberty",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Gonzaga",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Cal Baptist",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Iowa",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Santa Clara",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Florida",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Portland State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "BYU",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Saint Mary's",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Nebraska",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Navy",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "UConn",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Merrimack",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Auburn",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "SMU",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Virginia",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Yale",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Texas Tech",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Stephen F. Austin",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Alabama",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Miami (Ohio)",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Michigan State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "North Dakota State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Saint Louis",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Georgia",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Houston",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Wright State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Michigan",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "LIU",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "NC State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Utah State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Tennessee",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Belmont",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "North Carolina",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "UNC Wilmington",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Kentucky",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "UCLA",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Purdue",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Winthrop",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Villanova",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "USC",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Iowa State",
+    "r64_cover_prob": 0.5
+  },
+  {
+    "team": "Austin Peay",
+    "r64_cover_prob": 0.5
+  }
+]

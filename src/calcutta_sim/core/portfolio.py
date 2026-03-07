@@ -3,6 +3,13 @@
 from __future__ import annotations
 
 from calcutta_sim.core.models import ROUND_ORDER
+from calcutta_sim.core.payout import (
+    biggest_loser_percentage,
+    compute_team_expected_values,
+    resolve_total_pot,
+    round_one_total_percentage,
+)
+from calcutta_sim.core.validate import ValidationError, validate_payout_rules
 
 
 def evaluate_portfolio(
@@ -10,16 +17,30 @@ def evaluate_portfolio(
     payout_rules: dict,
     finish_counts: dict[str, dict[str, int]],
     total_runs: int,
+    special_event_shares: dict[str, dict[str, float]] | None = None,
 ) -> dict:
     """Compute team-level and total expected payout/profit from simulation output."""
 
     if total_runs <= 0:
         raise ValueError("total_runs must be > 0")
 
-    finish_percentages = payout_rules.get("finish_percentages", {})
-    total_pot = float(payout_rules.get("total_pot") or 0.0)
-    if total_pot <= 0.0:
-        total_pot = sum(float(b["bid_amount"]) for b in bids)
+    validate_payout_rules(payout_rules)
+    total_pot = resolve_total_pot(payout_rules, sum(float(b["bid_amount"]) for b in bids))
+    needs_specials = round_one_total_percentage(payout_rules) > 0 or biggest_loser_percentage(
+        payout_rules
+    ) > 0
+    if needs_specials and not special_event_shares:
+        raise ValidationError(
+            "Simulation summary is missing special_event_shares required by payout rules"
+        )
+
+    team_expected_values = compute_team_expected_values(
+        payout_rules=payout_rules,
+        total_runs=total_runs,
+        finish_counts=finish_counts,
+        special_event_shares=special_event_shares,
+        total_pot=total_pot,
+    )
 
     team_breakdown = []
     total_spend = 0.0
@@ -30,13 +51,11 @@ def evaluate_portfolio(
         bid_amount = float(bid["bid_amount"])
         total_spend += bid_amount
 
+        team_expected = team_expected_values.get(team, 0.0)
         team_counts = finish_counts.get(team, {})
-        team_expected = 0.0
-        finish_probs = {}
-        for finish in ROUND_ORDER:
-            prob = team_counts.get(finish, 0) / total_runs
-            finish_probs[finish] = prob
-            team_expected += prob * total_pot * float(finish_percentages.get(finish, 0.0))
+        finish_probs = {
+            finish: team_counts.get(finish, 0) / total_runs for finish in ROUND_ORDER
+        }
 
         expected_payout += team_expected
         team_breakdown.append(

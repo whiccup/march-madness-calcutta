@@ -28,6 +28,8 @@ class GameResult:
     team_a: str
     team_b: str
     winner: str
+    loser: str
+    margin: int
 
 
 @dataclass
@@ -62,6 +64,9 @@ def simulate_tournament(
         for team_a, team_b in pairings:
             p_a = win_probability(team_a, team_b, strengths)
             winner = team_a if rng.random() < p_a else team_b
+            loser = team_b if winner == team_a else team_a
+            expected_margin = 4.0 + 16.0 * abs(p_a - 0.5)
+            margin = max(1, int(round(rng.gauss(expected_margin, 7.0))))
             winners.append(winner)
 
             if ROUND_RANK[next_round] > ROUND_RANK[deepest[winner]]:
@@ -73,6 +78,8 @@ def simulate_tournament(
                     team_a=team_a,
                     team_b=team_b,
                     winner=winner,
+                    loser=loser,
+                    margin=margin,
                 )
             )
 

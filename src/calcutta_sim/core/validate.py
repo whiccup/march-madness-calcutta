@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 
 from calcutta_sim.core.models import ROUND_ORDER, Team
+from calcutta_sim.core.payout import get_seed_rule_map
 
 
 class ValidationError(ValueError):
@@ -59,9 +60,10 @@ def validate_odds(teams: list[Team], odds: dict[str, float]) -> None:
             raise ValidationError(f"Odds value must be > 0 for {team}")
 
 
-def validate_payout_rules(finish_percentages: dict[str, float]) -> None:
+def validate_payout_rules(payout_rules: dict) -> None:
     """Validate payout keys and ensure percentages are non-negative and bounded."""
 
+    finish_percentages = payout_rules.get("finish_percentages", {})
     unknown = sorted(set(finish_percentages) - set(ROUND_ORDER))
     if unknown:
         raise ValidationError(f"Unknown payout finish keys: {', '.join(unknown)}")
@@ -73,6 +75,60 @@ def validate_payout_rules(finish_percentages: dict[str, float]) -> None:
     total = sum(finish_percentages.values())
     if total > 1.000001:
         raise ValidationError("Sum of payout percentages cannot exceed 1.0")
+
+    special_percentages = payout_rules.get("special_percentages", {})
+    unknown_special = sorted(set(special_percentages) - {"BIGGEST_LOSER"})
+    if unknown_special:
+        raise ValidationError(f"Unknown special payout keys: {', '.join(unknown_special)}")
+    for key, value in special_percentages.items():
+        if float(value) < 0:
+            raise ValidationError(f"Negative payout percentage for {key}")
+
+    round_one_rules = payout_rules.get("round_one_rules")
+    if round_one_rules is None:
+        return
+
+    round_one_total = float(round_one_rules.get("total_percentage", 0.0))
+    if round_one_total < 0:
+        raise ValidationError("round_one_rules.total_percentage must be >= 0")
+
+    split = str(round_one_rules.get("split", "equal")).lower()
+    if split != "equal":
+        raise ValidationError("round_one_rules.split must be 'equal'")
+
+    seed_map = get_seed_rule_map(payout_rules)
+    unknown_seed_behaviors = sorted(
+        {behavior for behavior in seed_map.values() if behavior not in {"EXCLUDE", "WIN", "COVER"}}
+    )
+    if unknown_seed_behaviors:
+        raise ValidationError(
+            f"Unknown round_one seed behavior(s): {', '.join(unknown_seed_behaviors)}"
+        )
+
+    total_with_specials = total + round_one_total + sum(float(v) for v in special_percentages.values())
+    if total_with_specials > 1.000001:
+        raise ValidationError("Sum of all payout percentages cannot exceed 1.0")
+
+
+def validate_r64_cover_probabilities(teams: list[Team], cover_probs: dict[str, float]) -> None:
+    """Validate first-round cover probabilities against the provided team set."""
+
+    team_set = {t.team for t in teams}
+    missing = sorted(team_set - set(cover_probs))
+    if missing:
+        raise ValidationError(
+            f"Missing round-1 cover probabilities for teams: {', '.join(missing)}"
+        )
+
+    extras = sorted(set(cover_probs) - team_set)
+    if extras:
+        raise ValidationError(
+            f"Round-1 cover probabilities contain unknown teams: {', '.join(extras)}"
+        )
+
+    for team, value in cover_probs.items():
+        if value < 0 or value > 1:
+            raise ValidationError(f"round-1 cover probability for {team} must be in [0, 1]")
 
 
 def validate_auction_participants(

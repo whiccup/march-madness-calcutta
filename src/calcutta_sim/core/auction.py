@@ -8,8 +8,14 @@ from random import Random
 from typing import Any
 
 from calcutta_sim.core.auction_strategy import AuctionContext, ParticipantState
-from calcutta_sim.core.models import ROUND_ORDER, Team
+from calcutta_sim.core.models import Team
 from calcutta_sim.core.odds import odds_to_strengths
+from calcutta_sim.core.payout import (
+    biggest_loser_percentage,
+    compute_team_expected_values,
+    resolve_total_pot,
+    round_one_total_percentage,
+)
 from calcutta_sim.core.sim import run_simulations
 from calcutta_sim.core.strategies import build_strategy
 from calcutta_sim.core.validate import ValidationError, validate_auction_participants, validate_payout_rules
@@ -23,29 +29,6 @@ class AuctionResultLine:
     winner: str | None
     price: float
     runner_up: str | None
-
-
-def _team_expected_values(
-    finish_counts: dict[str, dict[str, int]],
-    total_runs: int,
-    payout_rules: dict[str, Any],
-    default_pot: float,
-) -> tuple[dict[str, float], float]:
-    finish_percentages = payout_rules.get("finish_percentages", {})
-    validate_payout_rules(finish_percentages)
-
-    total_pot = float(payout_rules.get("total_pot") or 0.0)
-    if total_pot <= 0:
-        total_pot = default_pot
-
-    values: dict[str, float] = {}
-    for team, counts in finish_counts.items():
-        ev = 0.0
-        for finish in ROUND_ORDER:
-            prob = counts.get(finish, 0) / total_runs
-            ev += prob * total_pot * float(finish_percentages.get(finish, 0.0))
-        values[team] = ev
-    return values, total_pot
 
 
 def _price_and_winners(
@@ -78,6 +61,7 @@ def simulate_auction(
     force_unlimited_bankroll: bool = False,
     soft_cap_enabled: bool = False,
     soft_cap_decay: float = 4.0,
+    r64_cover_probabilities: dict[str, float] | None = None,
 ) -> dict[str, Any]:
     """Simulate open-ascending auction across teams and return ledger + metrics."""
 
@@ -94,7 +78,15 @@ def simulate_auction(
 
     rng = Random(seed)
     strengths = odds_to_strengths(odds)
-    summary, _ = run_simulations(teams=teams, strengths=strengths, runs=runs, seed=seed)
+    validate_payout_rules(payout_rules)
+    summary, _ = run_simulations(
+        teams=teams,
+        strengths=strengths,
+        runs=runs,
+        seed=seed,
+        payout_rules=payout_rules,
+        r64_cover_probabilities=r64_cover_probabilities,
+    )
 
     default_pot = sum(float(p.get("bankroll") or 0.0) for p in participants)
     explicit_total_pot = float(payout_rules.get("total_pot") or 0.0)
@@ -102,11 +94,20 @@ def simulate_auction(
         raise ValidationError(
             "payout_rules.total_pot must be > 0 when participants use unlimited bankroll"
         )
-    team_ev, total_pot = _team_expected_values(
-        finish_counts=summary["finish_counts"],
-        total_runs=summary["total_runs"],
+    total_pot = resolve_total_pot(payout_rules, default_pot)
+    needs_specials = round_one_total_percentage(payout_rules) > 0 or biggest_loser_percentage(
+        payout_rules
+    ) > 0
+    if needs_specials and not summary.get("special_event_shares"):
+        raise ValidationError(
+            "Simulation summary is missing special_event_shares required by payout rules"
+        )
+    team_ev = compute_team_expected_values(
         payout_rules=payout_rules,
-        default_pot=default_pot,
+        total_runs=summary["total_runs"],
+        finish_counts=summary["finish_counts"],
+        special_event_shares=summary.get("special_event_shares"),
+        total_pot=total_pot,
     )
 
     states: dict[str, ParticipantState] = {}

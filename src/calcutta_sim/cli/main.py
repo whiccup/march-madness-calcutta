@@ -16,6 +16,7 @@ from calcutta_sim.core.validate import (
     ValidationError,
     validate_auction_participants,
     validate_odds,
+    validate_r64_cover_probabilities,
     validate_payout_rules,
     validate_teams,
 )
@@ -66,6 +67,38 @@ def _print_round_reach(summary: dict, limit: int = 20) -> None:
             f"F2 {rounds['F2']:.2%} "
             f"Champ {rounds['CHAMP']:.2%}"
         )
+
+    special_shares = summary.get("special_event_shares", {})
+    round_one = special_shares.get("ROUND1", {})
+    biggest_loser = special_shares.get("BIGGEST_LOSER", {})
+    if round_one or biggest_loser:
+        print("\nSpecial event shares (top teams by title odds):")
+        for team, _ in sorted_teams:
+            print(
+                f"  {team:<25} "
+                f"R1-share {round_one.get(team, 0.0):.3f} "
+                f"BigLoser-share {biggest_loser.get(team, 0.0):.3f}"
+            )
+
+
+def _load_r64_cover_probabilities(path: str) -> dict[str, float]:
+    """Load first-round cover probabilities from JSON list or mapping formats."""
+
+    raw = load_json(path)
+    if isinstance(raw, list):
+        return {str(item["team"]): float(item["r64_cover_prob"]) for item in raw}
+    return {str(k): float(v) for k, v in raw.items()}
+
+
+def _payout_requires_cover_probabilities(payout_rules: dict) -> bool:
+    """Return True when payout rules include any round-one COVER seed behavior."""
+
+    round_one_rules = payout_rules.get("round_one_rules", {})
+    seed_rules = round_one_rules.get("seed_payout_rules", {})
+    for behavior in seed_rules.values():
+        if str(behavior).upper() == "COVER":
+            return True
+    return False
 
 
 def _print_portfolio(report: dict) -> None:
@@ -131,7 +164,10 @@ def cmd_validate_data(args: argparse.Namespace) -> int:
 
     if args.payout_rules:
         payout_rules = load_json(args.payout_rules)
-        validate_payout_rules(payout_rules.get("finish_percentages", {}))
+        validate_payout_rules(payout_rules)
+        if _payout_requires_cover_probabilities(payout_rules):
+            cover_probs = _load_r64_cover_probabilities(args.r64_cover_probs)
+            validate_r64_cover_probabilities(teams, cover_probs)
 
     print("Data validation passed.")
     return 0
@@ -146,8 +182,24 @@ def cmd_simulate(args: argparse.Namespace) -> int:
     validate_teams(teams)
     validate_odds(teams, odds)
 
+    payout_rules = None
+    cover_probs = None
+    if args.payout_rules:
+        payout_rules = load_json(args.payout_rules)
+        validate_payout_rules(payout_rules)
+        if _payout_requires_cover_probabilities(payout_rules):
+            cover_probs = _load_r64_cover_probabilities(args.r64_cover_probs)
+            validate_r64_cover_probabilities(teams, cover_probs)
+
     strengths = odds_to_strengths(odds)
-    summary, sample = run_simulations(teams=teams, strengths=strengths, runs=args.runs, seed=args.seed)
+    summary, sample = run_simulations(
+        teams=teams,
+        strengths=strengths,
+        runs=args.runs,
+        seed=args.seed,
+        payout_rules=payout_rules,
+        r64_cover_probabilities=cover_probs,
+    )
 
     print(f"Completed {summary['total_runs']} simulations.")
     _print_champion_probs(summary)
@@ -169,13 +221,12 @@ def cmd_simulate(args: argparse.Namespace) -> int:
 
     if args.bids and args.payout_rules:
         bids = load_json(args.bids)
-        payout_rules = load_json(args.payout_rules)
-        validate_payout_rules(payout_rules.get("finish_percentages", {}))
         report = evaluate_portfolio(
             bids=bids,
             payout_rules=payout_rules,
             finish_counts=summary["finish_counts"],
             total_runs=summary["total_runs"],
+            special_event_shares=summary.get("special_event_shares"),
         )
         payload["portfolio"] = report
         _print_portfolio(report)
@@ -192,7 +243,7 @@ def cmd_portfolio(args: argparse.Namespace) -> int:
 
     bids = load_json(args.bids)
     payout_rules = load_json(args.payout_rules)
-    validate_payout_rules(payout_rules.get("finish_percentages", {}))
+    validate_payout_rules(payout_rules)
 
     sim_results = load_json(args.sim_results)
     summary = sim_results["summary"]
@@ -201,6 +252,7 @@ def cmd_portfolio(args: argparse.Namespace) -> int:
         payout_rules=payout_rules,
         finish_counts=summary["finish_counts"],
         total_runs=summary["total_runs"],
+        special_event_shares=summary.get("special_event_shares"),
     )
     _print_portfolio(report)
     return 0
@@ -235,7 +287,11 @@ def cmd_simulate_auction(args: argparse.Namespace) -> int:
 
     validate_teams(teams)
     validate_odds(teams, odds)
-    validate_payout_rules(payout_rules.get("finish_percentages", {}))
+    validate_payout_rules(payout_rules)
+    cover_probs = None
+    if _payout_requires_cover_probabilities(payout_rules):
+        cover_probs = _load_r64_cover_probabilities(args.r64_cover_probs)
+        validate_r64_cover_probabilities(teams, cover_probs)
     validate_auction_participants(
         participants=participants,
         force_unlimited_bankroll=args.unlimited_bankroll,
@@ -252,6 +308,7 @@ def cmd_simulate_auction(args: argparse.Namespace) -> int:
         force_unlimited_bankroll=args.unlimited_bankroll,
         soft_cap_enabled=args.soft_cap_enabled,
         soft_cap_decay=args.soft_cap_decay,
+        r64_cover_probabilities=cover_probs,
     )
     _print_auction_summary(auction_report)
 
@@ -289,6 +346,7 @@ def build_parser() -> argparse.ArgumentParser:
     validate_parser.add_argument("--teams", default="data/teams.json")
     validate_parser.add_argument("--odds", default="data/odds.json")
     validate_parser.add_argument("--payout-rules")
+    validate_parser.add_argument("--r64-cover-probs", default="data/r64_cover_probs.json")
     validate_parser.set_defaults(func=cmd_validate_data)
 
     sim_parser = subparsers.add_parser("simulate", help="Run Monte Carlo simulation")
@@ -300,6 +358,7 @@ def build_parser() -> argparse.ArgumentParser:
     sim_parser.add_argument("--output", default="runs/latest.json")
     sim_parser.add_argument("--bids")
     sim_parser.add_argument("--payout-rules")
+    sim_parser.add_argument("--r64-cover-probs", default="data/r64_cover_probs.json")
     sim_parser.set_defaults(func=cmd_simulate)
 
     portfolio_parser = subparsers.add_parser(
@@ -330,6 +389,7 @@ def build_parser() -> argparse.ArgumentParser:
     auction_parser.add_argument("--unlimited-bankroll", action="store_true")
     auction_parser.add_argument("--soft-cap-enabled", action="store_true")
     auction_parser.add_argument("--soft-cap-decay", type=float, default=4.0)
+    auction_parser.add_argument("--r64-cover-probs", default="data/r64_cover_probs.json")
     auction_parser.add_argument("--output", default="runs/auction_latest.json")
     auction_parser.set_defaults(func=cmd_simulate_auction)
 

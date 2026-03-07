@@ -8,6 +8,8 @@ from calcutta_sim.core.validate import (
     ValidationError,
     validate_auction_participants,
     validate_odds,
+    validate_payout_rules,
+    validate_r64_cover_probabilities,
     validate_teams,
 )
 from tests.helpers import build_odds, build_teams
@@ -81,6 +83,24 @@ class ValidateTests(unittest.TestCase):
         ]
         with self.assertRaises(ValidationError):
             validate_auction_participants(participants)
+
+    def test_validate_payout_rules_accepts_round_one_and_specials(self) -> None:
+        payout_rules = {
+            "finish_percentages": {"S16": 0.24, "E8": 0.16, "F4": 0.11, "F2": 0.09, "CHAMP": 0.07},
+            "round_one_rules": {
+                "total_percentage": 0.29,
+                "split": "equal",
+                "seed_payout_rules": {"1-3": "EXCLUDE", "4-12": "WIN", "13-16": "COVER"},
+            },
+            "special_percentages": {"BIGGEST_LOSER": 0.04},
+        }
+        validate_payout_rules(payout_rules)
+
+    def test_validate_r64_cover_probabilities_rejects_missing(self) -> None:
+        teams = build_teams()
+        cover = {team.team: 0.5 for team in teams[:-1]}
+        with self.assertRaises(ValidationError):
+            validate_r64_cover_probabilities(teams, cover)
 
 
 if __name__ == "__main__":

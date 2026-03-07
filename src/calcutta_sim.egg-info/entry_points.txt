@@ -1,0 +1,2 @@
+[console_scripts]
+calcutta-sim = calcutta_sim.cli.main:main

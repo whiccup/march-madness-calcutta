@@ -1,7 +1,29 @@
 [
   {
-    "name": "ValueHunter",
-    "bankroll": 450.0,
+    "name": "EV_1",
+    "bankroll": 420.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "ev_threshold",
+      "params": {
+        "aggressiveness": 0.85
+      }
+    }
+  },
+  {
+    "name": "EV_2",
+    "bankroll": 440.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "ev_threshold",
+      "params": {
+        "aggressiveness": 0.9
+      }
+    }
+  },
+  {
+    "name": "EV_3",
+    "bankroll": 460.0,
     "strategy": {
       "kind": "builtin",
       "name": "ev_threshold",
@@ -11,25 +33,173 @@
     }
   },
   {
-    "name": "SeedBeliever",
-    "bankroll": 400.0,
+    "name": "EV_4",
+    "bankroll": 480.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "ev_threshold",
+      "params": {
+        "aggressiveness": 1.0
+      }
+    }
+  },
+  {
+    "name": "EV_5",
+    "bankroll": 500.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "ev_threshold",
+      "params": {
+        "aggressiveness": 1.05
+      }
+    }
+  },
+  {
+    "name": "EV_6",
+    "bankroll": 520.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "ev_threshold",
+      "params": {
+        "aggressiveness": 1.1
+      }
+    }
+  },
+  {
+    "name": "Seed_1",
+    "bankroll": 390.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "seed_bias",
+      "params": {
+        "base_aggressiveness": 0.8,
+        "seed_weight": 0.15
+      }
+    }
+  },
+  {
+    "name": "Seed_2",
+    "bankroll": 410.0,
     "strategy": {
       "kind": "builtin",
       "name": "seed_bias",
       "params": {
         "base_aggressiveness": 0.85,
+        "seed_weight": 0.2
+      }
+    }
+  },
+  {
+    "name": "Seed_3",
+    "bankroll": 430.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "seed_bias",
+      "params": {
+        "base_aggressiveness": 0.9,
         "seed_weight": 0.25
       }
     }
   },
   {
-    "name": "DiscountShopper",
-    "bankroll": 350.0,
+    "name": "Seed_4",
+    "bankroll": 450.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "seed_bias",
+      "params": {
+        "base_aggressiveness": 0.95,
+        "seed_weight": 0.3
+      }
+    }
+  },
+  {
+    "name": "Seed_5",
+    "bankroll": 470.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "seed_bias",
+      "params": {
+        "base_aggressiveness": 1.0,
+        "seed_weight": 0.35
+      }
+    }
+  },
+  {
+    "name": "Seed_6",
+    "bankroll": 490.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "seed_bias",
+      "params": {
+        "base_aggressiveness": 1.05,
+        "seed_weight": 0.4
+      }
+    }
+  },
+  {
+    "name": "Disc_1",
+    "bankroll": 360.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "flat_discount",
+      "params": {
+        "discount": 1.0
+      }
+    }
+  },
+  {
+    "name": "Disc_2",
+    "bankroll": 380.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "flat_discount",
+      "params": {
+        "discount": 1.5
+      }
+    }
+  },
+  {
+    "name": "Disc_3",
+    "bankroll": 400.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "flat_discount",
+      "params": {
+        "discount": 2.0
+      }
+    }
+  },
+  {
+    "name": "Disc_4",
+    "bankroll": 420.0,
     "strategy": {
       "kind": "builtin",
       "name": "flat_discount",
       "params": {
         "discount": 2.5
+      }
+    }
+  },
+  {
+    "name": "Disc_5",
+    "bankroll": 440.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "flat_discount",
+      "params": {
+        "discount": 3.0
+      }
+    }
+  },
+  {
+    "name": "Disc_6",
+    "bankroll": 460.0,
+    "strategy": {
+      "kind": "builtin",
+      "name": "flat_discount",
+      "params": {
+        "discount": 3.5
       }
     }
   }

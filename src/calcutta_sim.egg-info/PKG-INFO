@@ -1,3 +1,11 @@
+Metadata-Version: 2.4
+Name: calcutta-sim
+Version: 0.1.0
+Summary: March Madness Calcutta simulator
+Author: Calcutta Sim
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+
 # march-madness-calcutta
 
 March Madness simulations with Calcutta modeling.
@@ -53,7 +61,7 @@ python -m calcutta_sim simulate-auction \
 Enable unlimited bankroll globally for all participants:
 
 ```bash
-python3 -m calcutta_sim simulate-auction \
+python -m calcutta_sim simulate-auction \
   --participants data/participants.json \
   --payout-rules data/payout_rules.json \
   --unlimited-bankroll
@@ -82,20 +90,6 @@ Per-participant soft cap is also supported directly in `participants.json`:
     "params": { "aggressiveness": 1.2 }
   }
 }
-```
-
-## Make shortcuts
-
-Run the common workflows without remembering `PYTHONPATH=src`:
-
-```bash
-make validate
-make simulate
-make auction
-make auction-soft-cap
-make auction-unlimited
-make auction-unlimited-soft-cap
-make test
 ```
 
 Evaluate portfolio from a saved run:

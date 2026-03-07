@@ -223,7 +223,7 @@ def _parse_2024_results(rows: Dict[int, Dict[str, str]]) -> list[dict[str, str]]
                 "champs": _format_number(row.get("Q", "")),
                 "biggest_loser": _format_number(row.get("R", "")),
                 "total": _format_number(row.get("S", "")),
-                "profit_loss": _format_number(row.get("T", "")),
+                "profit_loss": "",
                 "roi": _format_number(row.get("U", "")),
                 "playin_flag": playin_flag,
                 "playin_team_a": playin_team_a,

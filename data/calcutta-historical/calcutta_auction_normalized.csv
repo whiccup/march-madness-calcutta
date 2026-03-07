@@ -63,67 +63,67 @@ year,region,seed,team_name,winning_bid,owner_name,notes,team_still_alive,cashed_
 2025,East,14,Montana,3600,UNKNOWN,,,,,,,,,,,,,,N,,,auction_grid_2025,16
 2025,East,9,Baylor,3600,UNKNOWN,,,,,,,,,,,,,,N,,,auction_grid_2025,17
 2025,East,6,BYU,7700,UNKNOWN,,,,,,,,,,,,,,N,,,auction_grid_2025,18
-2024,West,8,Mississippi State,1800,McManama,,Y,,0,0,0,0,0,0,0,0,-1800,-1,N,,,results_table_2024,24
-2024,West,10,Nevada,3100,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,-3100,-1,N,,,results_table_2024,25
-2024,West,12,Grand Canyon,2100,Piemonte,,Y,,0,0,0,0,0,0,0,0,-2100,-1,N,,,results_table_2024,26
-2024,West,4,Alabama,5700,McManama,,Y,,0,0,0,0,0,0,0,0,-5700,-1,N,,,results_table_2024,27
-2024,West,11,New Mexico,3700,Piemonte,,Y,,0,0,0,0,0,0,0,0,-3700,-1,N,,,results_table_2024,28
-2024,West,7,Dayton,2800,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,-2800,-1,N,,,results_table_2024,29
-2024,West,16,Howard / Wagner,2100,Kulhman + Girardin,Howard / Wagner + 22.5,Y,,0,0,0,0,0,0,0,0,-2100,-1,Y,Howard,Wagner,results_table_2024,30
-2024,West,2,Arizona,13800,McManama,,Y,,0,0,0,0,0,0,0,0,-13800,-1,N,,,results_table_2024,31
-2024,West,15,Long Beach State,3000,Piemonte,Long Beach State + 20.5,Y,,0,0,0,0,0,0,0,0,-3000,-1,N,,,results_table_2024,32
-2024,West,3,Baylor,6600,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,-6600,-1,N,,,results_table_2024,33
-2024,West,13,Charleston,4000,Mueller+Nickel,Charleston + 9.5,Y,,0,0,0,0,0,0,0,0,-4000,-1,N,,,results_table_2024,34
-2024,West,1,North Carolina,13500,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-13500,-1,N,,,results_table_2024,35
-2024,West,5,Saint Mary's,7000,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-7000,-1,N,,,results_table_2024,36
-2024,West,14,Colgate,3400,Piemonte,Colgate + 14.5,Y,,0,0,0,0,0,0,0,0,-3400,-1,N,,,results_table_2024,37
-2024,West,9,Michigan State,4400,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,-4400,-1,N,,,results_table_2024,38
-2024,West,6,Clemson,4000,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,-4000,-1,N,,,results_table_2024,39
-2024,Midwest,8,Utah State,2400,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,-2400,-1,N,,,results_table_2024,41
-2024,Midwest,10,Virginia / Colorado State,2900,Moncrief + Sparty,,Y,,0,0,0,0,0,0,0,0,-2900,-1,Y,Virginia,Colorado State,results_table_2024,42
-2024,Midwest,12,McNeese,2800,VB,,Y,,0,0,0,0,0,0,0,0,-2800,-1,N,,,results_table_2024,43
-2024,Midwest,4,Kansas,5800,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,-5800,-1,N,,,results_table_2024,44
-2024,Midwest,11,Oregon,4800,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-4800,-1,N,,,results_table_2024,45
-2024,Midwest,7,Texas,3400,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,-3400,-1,N,,,results_table_2024,46
-2024,Midwest,16,Montana State / Grambling,3000,Moncrief + Sparty,Montana State / Grambling + 23.5,Y,,0,0,0,0,0,0,0,0,-3000,-1,Y,Montana State,Grambling,results_table_2024,47
-2024,Midwest,2,Tennessee,25000,Piemonte,,Y,,0,0,0,0,0,0,0,0,-25000,-1,N,,,results_table_2024,48
-2024,Midwest,15,Saint Peter's,4000,Piemonte,Saint Peter's + 21.5,Y,,0,0,0,0,0,0,0,0,-4000,-1,N,,,results_table_2024,49
-2024,Midwest,3,Creighton,10600,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,-10600,-1,N,,,results_table_2024,50
-2024,Midwest,13,Samford,3800,Tom MacDonald,Samford + 8.5,Y,,0,0,0,0,0,0,0,0,-3800,-1,N,,,results_table_2024,51
-2024,Midwest,1,Purdue,20000,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,-20000,-1,N,,,results_table_2024,52
-2024,Midwest,5,Gonzaga,8500,McManama,,Y,,0,0,0,0,0,0,0,0,-8500,-1,N,,,results_table_2024,53
-2024,Midwest,14,Akron,3000,Lefty + Freddie,Akron + 12.5,Y,,0,0,0,0,0,0,0,0,-3000,-1,N,,,results_table_2024,54
-2024,Midwest,9,TCU,4600,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-4600,-1,N,,,results_table_2024,55
-2024,Midwest,6,South Carolina,5200,Lefty + Freddie,,Y,,0,0,0,0,0,0,0,0,-5200,-1,N,,,results_table_2024,56
-2024,South,8,Nebraska,4000,Lefty + Freddie,,Y,,0,0,0,0,0,0,0,0,-4000,-1,N,,,results_table_2024,58
-2024,South,10,Boise State / Colorado,5200,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-5200,-1,Y,Boise State,Colorado,results_table_2024,59
-2024,South,12,James Madison,4000,Moncrief + Sparty,,Y,,0,0,0,0,0,0,0,0,-4000,-1,N,,,results_table_2024,60
-2024,South,4,Duke,12000,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,-12000,-1,N,,,results_table_2024,61
-2024,South,11,NC State,4200,Mueller+Nickel,,Y,,0,0,0,0,0,0,0,0,-4200,-1,N,,,results_table_2024,62
-2024,South,7,Florida,4600,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,-4600,-1,N,,,results_table_2024,63
-2024,South,16,Longwood,4300,Moncrief + Sparty,Longwood + 24.5,Y,,0,0,0,0,0,0,0,0,-4300,-1,N,,,results_table_2024,64
-2024,South,2,Marquette,12500,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,-12500,-1,N,,,results_table_2024,65
-2024,South,15,Western Kentucky,5000,Lefty + Freddie,Western Kentucky + 13.5,Y,,0,0,0,0,0,0,0,0,-5000,-1,N,,,results_table_2024,66
-2024,South,3,Kentucky,13000,Lefty + Freddie,,Y,,0,0,0,0,0,0,0,0,-13000,-1,N,,,results_table_2024,67
-2024,South,13,Vermont,3800,Moncrief + Sparty,Vermont + 12.5,Y,,0,0,0,0,0,0,0,0,-3800,-1,N,,,results_table_2024,68
-2024,South,1,Houston,22000,Moncrief + Sparty,,Y,,0,0,0,0,0,0,0,0,-22000,-1,N,,,results_table_2024,69
-2024,South,5,Wisconsin,6000,VB,,Y,,0,0,0,0,0,0,0,0,-6000,-1,N,,,results_table_2024,70
-2024,South,14,Oakland,3600,Piemonte,Oakland + 13.5,Y,,0,0,0,0,0,0,0,0,-3600,-1,N,,,results_table_2024,71
-2024,South,9,Texas AM,4000,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-4000,-1,N,,,results_table_2024,72
-2024,South,6,Texas Tech,6200,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,-6200,-1,N,,,results_table_2024,73
-2024,East,8,Florida Atlantic,4400,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,-4400,-1,N,,,results_table_2024,75
-2024,East,10,Drake,4800,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-4800,-1,N,,,results_table_2024,76
-2024,East,12,UAB,3800,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,-3800,-1,N,,,results_table_2024,77
-2024,East,4,Auburn,14500,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,-14500,-1,N,,,results_table_2024,78
-2024,East,11,Duquesne,2800,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,-2800,-1,N,,,results_table_2024,79
-2024,East,7,Washington State,4200,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,-4200,-1,N,,,results_table_2024,80
-2024,East,16,Stetson,4200,McManama,Stetson + 26.5,Y,,0,0,0,0,0,0,0,0,-4200,-1,N,,,results_table_2024,81
-2024,East,2,Iowa State,15000,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,-15000,-1,N,,,results_table_2024,82
-2024,East,15,South Dakota State,4400,Mueller+Nickel,South Dakota State + 16.5,Y,,0,0,0,0,0,0,0,0,-4400,-1,N,,,results_table_2024,83
-2024,East,3,Illinois,14500,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,-14500,-1,N,,,results_table_2024,84
-2024,East,13,Yale,3600,Mueller+Nickel,Yale + 13.5,Y,,0,0,0,0,0,0,0,0,-3600,-1,N,,,results_table_2024,85
-2024,East,1,UConn,31000,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,-31000,-1,N,,,results_table_2024,86
-2024,East,5,San Diego State,6200,McManama,,Y,,0,0,0,0,0,0,0,0,-6200,-1,N,,,results_table_2024,87
-2024,East,14,Morehead State,3400,Tom MacDonald,Morehead State + 12.5,Y,,0,0,0,0,0,0,0,0,-3400,-1,N,,,results_table_2024,88
-2024,East,9,Northwestern,3400,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,-3400,-1,N,,,results_table_2024,89
-2024,East,6,BYU,6200,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,-6200,-1,N,,,results_table_2024,90
+2024,West,8,Mississippi State,1800,McManama,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,24
+2024,West,10,Nevada,3100,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,25
+2024,West,12,Grand Canyon,2100,Piemonte,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,26
+2024,West,4,Alabama,5700,McManama,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,27
+2024,West,11,New Mexico,3700,Piemonte,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,28
+2024,West,7,Dayton,2800,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,29
+2024,West,16,Howard / Wagner,2100,Kulhman + Girardin,Howard / Wagner + 22.5,Y,,0,0,0,0,0,0,0,0,,-1,Y,Howard,Wagner,results_table_2024,30
+2024,West,2,Arizona,13800,McManama,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,31
+2024,West,15,Long Beach State,3000,Piemonte,Long Beach State + 20.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,32
+2024,West,3,Baylor,6600,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,33
+2024,West,13,Charleston,4000,Mueller+Nickel,Charleston + 9.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,34
+2024,West,1,North Carolina,13500,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,35
+2024,West,5,Saint Mary's,7000,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,36
+2024,West,14,Colgate,3400,Piemonte,Colgate + 14.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,37
+2024,West,9,Michigan State,4400,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,38
+2024,West,6,Clemson,4000,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,39
+2024,Midwest,8,Utah State,2400,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,41
+2024,Midwest,10,Virginia / Colorado State,2900,Moncrief + Sparty,,Y,,0,0,0,0,0,0,0,0,,-1,Y,Virginia,Colorado State,results_table_2024,42
+2024,Midwest,12,McNeese,2800,VB,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,43
+2024,Midwest,4,Kansas,5800,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,44
+2024,Midwest,11,Oregon,4800,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,45
+2024,Midwest,7,Texas,3400,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,46
+2024,Midwest,16,Montana State / Grambling,3000,Moncrief + Sparty,Montana State / Grambling + 23.5,Y,,0,0,0,0,0,0,0,0,,-1,Y,Montana State,Grambling,results_table_2024,47
+2024,Midwest,2,Tennessee,25000,Piemonte,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,48
+2024,Midwest,15,Saint Peter's,4000,Piemonte,Saint Peter's + 21.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,49
+2024,Midwest,3,Creighton,10600,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,50
+2024,Midwest,13,Samford,3800,Tom MacDonald,Samford + 8.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,51
+2024,Midwest,1,Purdue,20000,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,52
+2024,Midwest,5,Gonzaga,8500,McManama,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,53
+2024,Midwest,14,Akron,3000,Lefty + Freddie,Akron + 12.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,54
+2024,Midwest,9,TCU,4600,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,55
+2024,Midwest,6,South Carolina,5200,Lefty + Freddie,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,56
+2024,South,8,Nebraska,4000,Lefty + Freddie,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,58
+2024,South,10,Boise State / Colorado,5200,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,Y,Boise State,Colorado,results_table_2024,59
+2024,South,12,James Madison,4000,Moncrief + Sparty,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,60
+2024,South,4,Duke,12000,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,61
+2024,South,11,NC State,4200,Mueller+Nickel,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,62
+2024,South,7,Florida,4600,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,63
+2024,South,16,Longwood,4300,Moncrief + Sparty,Longwood + 24.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,64
+2024,South,2,Marquette,12500,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,65
+2024,South,15,Western Kentucky,5000,Lefty + Freddie,Western Kentucky + 13.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,66
+2024,South,3,Kentucky,13000,Lefty + Freddie,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,67
+2024,South,13,Vermont,3800,Moncrief + Sparty,Vermont + 12.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,68
+2024,South,1,Houston,22000,Moncrief + Sparty,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,69
+2024,South,5,Wisconsin,6000,VB,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,70
+2024,South,14,Oakland,3600,Piemonte,Oakland + 13.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,71
+2024,South,9,Texas AM,4000,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,72
+2024,South,6,Texas Tech,6200,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,73
+2024,East,8,Florida Atlantic,4400,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,75
+2024,East,10,Drake,4800,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,76
+2024,East,12,UAB,3800,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,77
+2024,East,4,Auburn,14500,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,78
+2024,East,11,Duquesne,2800,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,79
+2024,East,7,Washington State,4200,Hall + Gwillam + Cushing + Hoff,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,80
+2024,East,16,Stetson,4200,McManama,Stetson + 26.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,81
+2024,East,2,Iowa State,15000,Kulhman + Girardin,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,82
+2024,East,15,South Dakota State,4400,Mueller+Nickel,South Dakota State + 16.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,83
+2024,East,3,Illinois,14500,Bisaillon + Hilding + Dudash + Nardi + Carr,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,84
+2024,East,13,Yale,3600,Mueller+Nickel,Yale + 13.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,85
+2024,East,1,UConn,31000,"Kent, Kenny + Company",,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,86
+2024,East,5,San Diego State,6200,McManama,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,87
+2024,East,14,Morehead State,3400,Tom MacDonald,Morehead State + 12.5,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,88
+2024,East,9,Northwestern,3400,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,89
+2024,East,6,BYU,6200,Tom MacDonald,,Y,,0,0,0,0,0,0,0,0,,-1,N,,,results_table_2024,90

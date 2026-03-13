@@ -1,0 +1,129 @@
+season,team_id,team_name,seed,seed_region,region,conference,winning_bid,owner_name,reached_r64,reached_r32,reached_s16,reached_e8,reached_f4,reached_f2,won_championship,furthest_round,payout_pct,payout_dollars,roi
+2024,1314,North Carolina,1,X,West,acc,13500,"Kent, Kenny + Company",1,1,1,0,0,0,0,2,0.015,6591.0,-0.5118
+2024,1345,Purdue,1,Y,Midwest,big_ten,20000,Bisaillon + Hilding + Dudash + Nardi + Carr,1,1,1,1,1,1,0,5,0.1075,47235.5,1.3618
+2024,1222,Houston,1,Z,South,big_twelve,22000,Moncrief + Sparty,1,1,1,0,0,0,0,2,0.015,6591.0,-0.7004
+2024,1163,Connecticut,1,W,East,big_east,31000,"Kent, Kenny + Company",1,1,1,1,1,1,1,6,0.1775,77993.5,1.5159
+2024,1112,Arizona,2,X,West,pac_twelve,13800,McManama,1,1,1,0,0,0,0,2,0.015,6591.0,-0.5224
+2024,1397,Tennessee,2,Y,Midwest,sec,25000,Piemonte,1,1,1,1,0,0,0,3,0.035,15379.0,-0.3848
+2024,1266,Marquette,2,Z,South,big_east,12500,Kulhman + Girardin,1,1,1,0,0,0,0,2,0.015,6591.0,-0.4727
+2024,1235,Iowa St,2,W,East,big_twelve,15000,Kulhman + Girardin,1,1,1,0,0,0,0,2,0.015,6591.0,-0.5606
+2024,1124,Baylor,3,X,West,big_twelve,6600,Bisaillon + Hilding + Dudash + Nardi + Carr,1,1,0,0,0,0,0,1,0.0,0.0,-1.0
+2024,1166,Creighton,3,Y,Midwest,big_east,10600,Bisaillon + Hilding + Dudash + Nardi + Carr,1,1,1,0,0,0,0,2,0.015,6591.0,-0.3782
+2024,1246,Kentucky,3,Z,South,sec,13000,Lefty + Freddie,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1228,Illinois,3,W,East,big_ten,14500,Bisaillon + Hilding + Dudash + Nardi + Carr,1,1,1,1,0,0,0,3,0.035,15379.0,0.0606
+2024,1104,Alabama,4,X,West,sec,5700,McManama,1,1,1,1,1,0,0,4,0.073241,32182.1,4.646
+2024,1242,Kansas,4,Y,Midwest,big_twelve,5800,Hall + Gwillam + Cushing + Hoff,1,1,0,0,0,0,0,1,0.010741,4719.6,-0.1863
+2024,1181,Duke,4,Z,South,acc,12000,Hall + Gwillam + Cushing + Hoff,1,1,1,1,0,0,0,3,0.045741,20098.6,0.6749
+2024,1120,Auburn,4,W,East,sec,14500,Tom MacDonald,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1388,St Mary's CA,5,X,West,wcc,7000,"Kent, Kenny + Company",1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1211,Gonzaga,5,Y,Midwest,wcc,8500,McManama,1,1,1,0,0,0,0,2,0.025741,11310.6,0.3307
+2024,1458,Wisconsin,5,Z,South,big_ten,6000,VB,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1361,San Diego St,5,W,East,mwc,6200,McManama,1,1,1,0,0,0,0,2,0.025741,11310.6,0.8243
+2024,1155,Clemson,6,X,West,acc,4000,Kulhman + Girardin,1,1,1,1,0,0,0,3,0.045741,20098.6,4.0246
+2024,1376,South Carolina,6,Y,Midwest,sec,5200,Lefty + Freddie,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1403,Texas Tech,6,Z,South,big_twelve,6200,Tom MacDonald,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1140,BYU,6,W,East,big_twelve,6200,Tom MacDonald,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1173,Dayton,7,X,West,a_ten,2800,Hall + Gwillam + Cushing + Hoff,1,1,0,0,0,0,0,1,0.010741,4719.6,0.6856
+2024,1400,Texas,7,Y,Midwest,big_twelve,3400,Hall + Gwillam + Cushing + Hoff,1,1,0,0,0,0,0,1,0.010741,4719.6,0.3881
+2024,1196,Florida,7,Z,South,sec,4600,Kulhman + Girardin,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1450,Washington St,7,W,East,pac_twelve,4200,Hall + Gwillam + Cushing + Hoff,1,1,0,0,0,0,0,1,0.010741,4719.6,0.1237
+2024,1280,Mississippi St,8,X,West,sec,1800,McManama,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1429,Utah St,8,Y,Midwest,mwc,2400,Kulhman + Girardin,1,1,0,0,0,0,0,1,0.010741,4719.6,0.9665
+2024,1304,Nebraska,8,Z,South,big_ten,4000,Lefty + Freddie,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1194,FL Atlantic,8,W,East,aac,4400,Bisaillon + Hilding + Dudash + Nardi + Carr,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1277,Michigan St,9,X,West,big_ten,4400,Tom MacDonald,1,1,0,0,0,0,0,1,0.010741,4719.6,0.0726
+2024,1395,TCU,9,Y,Midwest,big_twelve,4600,"Kent, Kenny + Company",1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1401,Texas A&M,9,Z,South,sec,4000,"Kent, Kenny + Company",1,1,0,0,0,0,0,1,0.010741,4719.6,0.1799
+2024,1321,Northwestern,9,W,East,big_ten,3400,Tom MacDonald,1,1,0,0,0,0,0,1,0.010741,4719.6,0.3881
+2024,1305,Nevada,10,X,West,mwc,3100,Tom MacDonald,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1161,Colorado St,10,Y,Midwest,mwc,2900,Moncrief + Sparty,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1160,Colorado,10,Z,South,pac_twelve,5200,"Kent, Kenny + Company",1,1,0,0,0,0,0,1,0.010741,4719.6,-0.0924
+2024,1179,Drake,10,W,East,mvc,4800,"Kent, Kenny + Company",1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1307,New Mexico,11,X,West,mwc,3700,Piemonte,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1332,Oregon,11,Y,Midwest,pac_twelve,4800,"Kent, Kenny + Company",1,1,0,0,0,0,0,1,0.010741,4719.6,-0.0167
+2024,1301,NC State,11,Z,South,acc,4200,Mueller+Nickel,1,1,1,1,1,0,0,4,0.073241,32182.1,6.6624
+2024,1182,Duquesne,11,W,East,a_ten,2800,Kulhman + Girardin,1,1,0,0,0,0,0,1,0.010741,4719.6,0.6856
+2024,1213,Grand Canyon,12,X,West,wac,2100,Piemonte,1,1,0,0,0,0,0,1,0.010741,4719.6,1.2474
+2024,1270,McNeese St,12,Y,Midwest,southland,2800,VB,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1241,James Madison,12,Z,South,sun_belt,4000,Moncrief + Sparty,1,1,0,0,0,0,0,1,0.010741,4719.6,0.1799
+2024,1412,UAB,12,W,East,aac,3800,Bisaillon + Hilding + Dudash + Nardi + Carr,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2024,1158,Col Charleston,13,X,West,caa,4000,Mueller+Nickel,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.4101
+2024,1359,Samford,13,Y,Midwest,southern,3800,Tom MacDonald,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.3791
+2024,1436,Vermont,13,Z,South,aec,3800,Moncrief + Sparty,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.3791
+2024,1463,Yale,13,W,East,ivy,3600,Mueller+Nickel,1,1,0,0,0,0,0,1,0.00537,2359.58,-0.3446
+2024,1159,Colgate,14,X,West,patriot,3400,Piemonte,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.306
+2024,1103,Akron,14,Y,Midwest,mac,3000,Lefty + Freddie,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.2135
+2024,1324,Oakland,14,Z,South,horizon,3600,Piemonte,1,1,0,0,0,0,0,1,0.00537,2359.58,-0.3446
+2024,1287,Morehead St,14,W,East,ovc,3400,Tom MacDonald,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.306
+2024,1253,Long Beach St,15,X,West,big_west,3000,Piemonte,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.2135
+2024,1389,St Peter's,15,Y,Midwest,maac,4000,Piemonte,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.4101
+2024,1443,WKU,15,Z,South,cusa,5000,Lefty + Freddie,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.5281
+2024,1355,S Dakota St,15,W,East,summit,4400,Mueller+Nickel,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.4637
+2024,1447,Wagner,16,X,West,nec,2100,Kulhman + Girardin,1,0,0,0,0,0,0,0,0.00537,2359.58,0.1236
+2024,1212,Grambling,16,Y,Midwest,swac,3000,Moncrief + Sparty,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.2135
+2024,1255,Longwood,16,Z,South,big_south,4300,Moncrief + Sparty,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.4513
+2024,1391,Stetson,16,W,East,a_sun,4200,McManama,1,0,0,0,0,0,0,0,0.00537,2359.58,-0.4382
+2025,1222,Houston,1,X,Midwest,big_twelve,21500,UNKNOWN,1,1,1,1,1,1,0,5,0.1075,47235.5,1.197
+2025,1120,Auburn,1,Y,South,sec,23000,UNKNOWN,1,1,1,1,1,0,0,4,0.0625,27462.5,0.194
+2025,1196,Florida,1,Z,West,sec,31000,UNKNOWN,1,1,1,1,1,1,1,6,0.1775,77993.5,1.5159
+2025,1181,Duke,1,W,East,acc,37000,UNKNOWN,1,1,1,1,1,0,0,4,0.0625,27462.5,-0.2578
+2025,1397,Tennessee,2,X,Midwest,sec,15000,UNKNOWN,1,1,1,1,0,0,0,3,0.035,15379.0,0.0253
+2025,1277,Michigan St,2,Y,South,big_ten,12000,UNKNOWN,1,1,1,1,0,0,0,3,0.035,15379.0,0.2816
+2025,1385,St John's,2,Z,West,big_east,12500,UNKNOWN,1,1,0,0,0,0,0,1,0.0,0.0,-1.0
+2025,1104,Alabama,2,W,East,sec,17500,UNKNOWN,1,1,1,1,0,0,0,3,0.035,15379.0,-0.1212
+2025,1246,Kentucky,3,X,Midwest,sec,6000,UNKNOWN,1,1,1,0,0,0,0,2,0.015,6591.0,0.0985
+2025,1235,Iowa St,3,Y,South,big_twelve,8500,UNKNOWN,1,1,0,0,0,0,0,1,0.0,0.0,-1.0
+2025,1403,Texas Tech,3,Z,West,big_twelve,10000,UNKNOWN,1,1,1,1,0,0,0,3,0.035,15379.0,0.5379
+2025,1458,Wisconsin,3,W,East,big_ten,7200,UNKNOWN,1,1,0,0,0,0,0,1,0.0,0.0,-1.0
+2025,1345,Purdue,4,X,Midwest,big_ten,6200,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,0.7971
+2025,1401,Texas A&M,4,Y,South,sec,8300,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,-0.4517
+2025,1268,Maryland,4,Z,West,big_ten,10400,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,0.0713
+2025,1112,Arizona,4,W,East,big_twelve,11000,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,0.0129
+2025,1155,Clemson,5,X,Midwest,acc,7000,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1276,Michigan,5,Y,South,big_ten,6000,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,0.857
+2025,1272,Memphis,5,Z,West,aac,5000,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1332,Oregon,5,W,East,big_ten,6000,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,-0.2415
+2025,1228,Illinois,6,X,Midwest,big_ten,6700,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,-0.3208
+2025,1279,Mississippi,6,Y,South,sec,6800,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,0.6385
+2025,1281,Missouri,6,Z,West,sec,8000,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1140,BYU,6,W,East,big_twelve,7700,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,0.447
+2025,1417,UCLA,7,X,Midwest,big_ten,4200,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.0835
+2025,1266,Marquette,7,Y,South,big_east,6000,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1242,Kansas,7,Z,West,big_twelve,5800,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1211,Gonzaga,8,X,Midwest,wcc,5800,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,-0.2154
+2025,1257,Louisville,8,Y,South,acc,4800,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1163,Connecticut,8,Z,West,big_east,4500,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.0113
+2025,1280,Mississippi St,8,W,East,sec,3400,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1208,Georgia,9,X,Midwest,sec,1900,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1166,Creighton,9,Y,South,big_east,3500,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.3002
+2025,1328,Oklahoma,9,Z,West,sec,3200,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1124,Baylor,9,W,East,big_twelve,3600,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.2641
+2025,1429,Utah St,10,X,Midwest,mwc,2900,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1307,New Mexico,10,Y,South,mwc,2600,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.7503
+2025,1116,Arkansas,10,Z,West,sec,2800,UNKNOWN,1,1,1,0,0,0,0,2,0.025357,11141.87,2.9792
+2025,1435,Vanderbilt,10,W,East,sec,2600,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1462,Xavier,11,X,Midwest,big_east,4000,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1314,North Carolina,11,Y,South,acc,4600,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1179,Drake,11,Z,West,mvc,3500,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.3002
+2025,1433,VCU,11,W,East,a_ten,4000,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1270,McNeese St,12,X,Midwest,southland,1800,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,1.5283
+2025,1471,UC San Diego,12,Y,South,big_west,3100,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1161,Colorado St,12,Z,West,mwc,3800,UNKNOWN,1,1,0,0,0,0,0,1,0.010357,4550.87,0.1976
+2025,1251,Liberty,12,W,East,cusa,2200,UNKNOWN,1,0,0,0,0,0,0,0,0.0,0.0,-1.0
+2025,1219,High Point,13,X,Midwest,big_south,2700,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.1572
+2025,1463,Yale,13,Y,South,ivy,3700,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.385
+2025,1213,Grand Canyon,13,Z,West,wac,3500,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.3498
+2025,1103,Akron,13,W,East,mac,3300,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.3104
+2025,1407,Troy,14,X,Midwest,sun_belt,2600,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.1247
+2025,1252,Lipscomb,14,Y,South,a_sun,2500,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.0897
+2025,1423,UNC Wilmington,14,Z,West,caa,3000,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.2414
+2025,1285,Montana,14,W,East,big_sky,3600,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.3679
+2025,1459,Wofford,15,X,Midwest,southern,3400,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.3307
+2025,1136,Bryant,15,Y,South,aec,3200,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.2889
+2025,1303,NE Omaha,15,Z,West,summit,4500,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.4943
+2025,1352,Robert Morris,15,W,East,horizon,4700,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.5158
+2025,1188,SIUE,16,X,Midwest,ovc,4000,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.4311
+2025,1106,Alabama St,16,Y,South,swac,4000,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.4311
+2025,1313,Norfolk St,16,Z,West,meac,4800,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.5259
+2025,1291,Mt St Mary's,16,W,East,maac,6000,UNKNOWN,1,0,0,0,0,0,0,0,0.005179,2275.65,-0.6207
+2025,1110,American Univ,16,W,East,patriot,4500,UNKNOWN,0,0,0,0,0,0,0,0,0.005179,2275.65,-0.4943

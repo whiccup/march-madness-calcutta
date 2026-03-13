@@ -17,7 +17,7 @@ season,team_id,team_name,reached_playin,won_playin,reached_r64,reached_r32,reach
 1985,1234,Iowa,0,0,1,0,0,0,0,0,0
 1985,1235,Iowa St,0,0,1,0,0,0,0,0,0
 1985,1242,Kansas,0,0,1,1,0,0,0,0,0
-1985,1246,Kentucky,0,0,1,1,1,0,0,0,0
+1985,1246,Kentucky,0,0,1,1,1,0,0,02,0
 1985,1250,Lehigh,0,0,1,0,0,0,0,0,0
 1985,1256,Louisiana Tech,0,0,1,1,1,0,0,0,0
 1985,1260,Loyola-Chicago,0,0,1,1,1,0,0,0,0
